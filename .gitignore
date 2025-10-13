@@ -1,8 +1,7 @@
-# === WordPress core ===
+# === Ignore everything inside wp ===
 wp/*
 !wp/wp-content/
-!wp/wp-config.php
-!wp/.htaccess
+!wp/wp-content/**
 
 # === WordPress content ===
 wp/wp-content/uploads/
