@@ -1,0 +1,20 @@
+Folder PATH listing for volume OS
+Volume serial number is 90A7-8BF1
+C:\USERS\ARLON\WORDPRESS-DOCKER\WP-CONTENT\THEMES\STOREFRONT-CHILD\ASSETS\VENDOR
+¦   vendor-structure.txt
+¦   
++---bootstrap
+¦   +---dist
+¦       +---css
+¦       ¦       bootstrap.min.css
+¦       ¦       
+¦       +---js
+¦               bootstrap.bundle.min.js
+¦               
++---slick-carousel
+    +---slick
+            ajax-loader.gif
+            slick-theme.css
+            slick.css
+            slick.min.js
+            

@@ -1,0 +1,49 @@
+1️⃣ Setup & Compatibility
+ Ensure .nvmrc exists and enforces the correct Node.js version (default: 18).
+ Check Node.js version on startup and exit if it doesn't match.
+
+===================================================================
+
+2️⃣ WordPress Theme Handling
+ Auto-detect the active theme folder inside wp-content/themes/.
+ Create missing WordPress theme files (style.css, functions.php(enqueue style.css), header.php, footer.php, etc.).
+ Ensure Bootstrap & Slick.js are copied to the theme’s vendor/ folder.
+
+
+===================================================================
+
+
+3️⃣ SCSS Compilation
+ Create a structured SCSS folder if it doesn't exist.
+ Compile SCSS to CSS with:
+Minification (compressed output)
+Source maps
+Bootstrap’s SCSS imports from node_modules
+
+
+===================================================================
+
+4️⃣ JavaScript Handling
+
+ Bundle JS files using Webpack with:
+ES6/Babel support
+Bootstrap & Slick.js imports via Webpack alias
+Minification for production builds
+
+===================================================================
+
+5️⃣ File & Database Watchers
+ Watch for PHP, SCSS, and JS changes and auto-refresh the browser.
+ Monitor the WordPress database (wp_options.last_changed) for updates and reload the browser.
+
+ ===================================================================
+6️⃣ Easy Installation & Usage
+ Run all tasks (scss, scripts, watch, db-watch) with gulp.
+ Auto-generate missing theme files & directories on first run.
+ Support Windows CMD as the terminal (not PowerShell, etc.).
+===================================================================
+
+ Live reload php via BrowserSync.
+ Live reload styles via BrowserSync.
+ Live reload JS via BrowserSync when changes are made.
+ Set up proxy for BrowserSync to match the theme’s local URL.

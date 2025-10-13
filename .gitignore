@@ -1,0 +1,31 @@
+# === WordPress content ===
+wp-content/uploads/
+wp-content/plugins/
+wp-content/themes/storefront/
+
+# Track only the child theme
+!wp-content/themes/storefront-child/**
+
+# Then ignore node_modules inside it again
+wp-content/themes/storefront-child/node_modules/
+
+# === Build and cache ===
+**/dist/
+**/build/
+**/.cache/
+**/.sass-cache/
+npm-debug.log*
+yarn-error.log*
+
+# === Docker and environment ===
+db_data/
+wp_data/
+*.env
+docker-compose.override.yml
+
+# === IDE and system ===
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

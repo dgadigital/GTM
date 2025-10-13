@@ -1,0 +1,63 @@
+Folder PATH listing for volume OS
+Volume serial number is 90A7-8BF1
+C:.
+¦   .env
+¦   .nvmrc
+¦   footer.php
+¦   functions.php
+¦   goal.txt
+¦   gulpfile.js
+¦   header.php
+¦   package.json
+¦   page-flexible-content.php
+¦   page.php
+¦   README.md
+¦   structure.txt
+¦   style.css
+¦   yarn.lock
+¦   
++---acf-json
+¦       group_68e8b08330be8.json
+¦       
++---gulp
+¦   +---tasks
+¦           checkJsFolder.js
+¦           checkScssFolder.js
+¦           copyVendor.js
+¦           dbWatch.js
+¦           default.js
+¦           detectTheme.js
+¦           ensureNodeVersion.js
+¦           generateSectionScss.js
+¦           generateThemeFiles.js
+¦           scripts.js
+¦           scss.js
+¦           watch.js
+¦           
++---sections
+        partial-accordion.php
+        partial-bottom_cta_banner.php
+        partial-case_study_display_section.php
+        partial-case_study_hub.php
+        partial-case_study_single_post_layout.php
+        partial-full_width_block_hover.php
+        partial-full_width_text_section.php
+        partial-full_width_with_three_column.php
+        partial-grid_section.php
+        partial-hero_banner.php
+        partial-hero_banner_bottom_bar.php
+        partial-icon_column_section.php
+        partial-icon_row_section.php
+        partial-image_and_text.php
+        partial-info_card_blocks.php
+        partial-leadership_fullwidth_automatic_slider.php
+        partial-logo_slider.php
+        partial-news_and_media.php
+        partial-row_gradient.php
+        partial-row_text_column.php
+        partial-section_title_bar.php
+        partial-testimonial_card_slider.php
+        partial-testimonial_full_width_slider.php
+        partial-two_column_section.php
+        partial-video_section.php
+        

@@ -1,0 +1,56 @@
+Folder PATH listing for volume OS
+Volume serial number is 90A7-8BF1
+C:\USERS\ARLON\WORDPRESS-DOCKER\WP-CONTENT\THEMES\STOREFRONT-CHILD\ASSETS\SCSS
+¦   main.scss
+¦   scss-structure.txt
+¦   style.scss
+¦   
++---abstracts
+¦       _functions.scss
+¦       _mixins.scss
+¦       _variables.scss
+¦       
++---base
+¦       _globals.scss
+¦       _reset.scss
+¦       _typography.scss
+¦       
++---components
+¦       _buttons.scss
+¦       _cards.scss
+¦       _forms.scss
+¦       
++---layout
+¦       _footer.scss
+¦       _header.scss
+¦       
++---pages
+¦       _home.scss
+¦       
++---sections
+        _accordion.scss
+        _bottom_cta_banner.scss
+        _case_study_display_section.scss
+        _case_study_hub.scss
+        _case_study_single_post_layout.scss
+        _full_width_block_hover.scss
+        _full_width_text_section.scss
+        _full_width_with_three_column.scss
+        _grid_section.scss
+        _hero_banner.scss
+        _hero_banner_bottom_bar.scss
+        _icon_column_section.scss
+        _icon_row_section.scss
+        _image_and_text.scss
+        _info_card_blocks.scss
+        _leadership_fullwidth_automatic_slider.scss
+        _logo_slider.scss
+        _news_and_media.scss
+        _row_gradient.scss
+        _row_text_column.scss
+        _section_title_bar.scss
+        _testimonial_card_slider.scss
+        _testimonial_full_width_slider.scss
+        _two_column_section.scss
+        _video_section.scss
+        

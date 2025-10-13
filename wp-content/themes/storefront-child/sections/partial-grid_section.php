@@ -1,0 +1,1 @@
+<?php /* grid_section */ ?> 

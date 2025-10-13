@@ -1,0 +1,262 @@
+{
+    "key": "group_68e8b08330be8",
+    "title": "Flexible Content Sections",
+    "fields": [
+        {
+            "key": "field_68e8b084f99a5",
+            "label": "Flex content",
+            "name": "flex_content",
+            "aria-label": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_68e8b0c67ab7a": {
+                    "key": "layout_68e8b0c67ab7a",
+                    "name": "logo_slider",
+                    "label": "Logo slider",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_full_width_block_hover": {
+                    "key": "layout_full_width_block_hover",
+                    "name": "full_width_block_hover",
+                    "label": "Full width block hover",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_testimonial_card_slider": {
+                    "key": "layout_testimonial_card_slider",
+                    "name": "testimonial_card_slider",
+                    "label": "Testimonial card slider",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_info_card_blocks": {
+                    "key": "layout_info_card_blocks",
+                    "name": "info_card_blocks",
+                    "label": "Info card blocks",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_icon_column_section": {
+                    "key": "layout_icon_column_section",
+                    "name": "icon_column_section",
+                    "label": "Icon column section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_full_width_text_section": {
+                    "key": "layout_full_width_text_section",
+                    "name": "full_width_text_section",
+                    "label": "Full width text section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_grid_section": {
+                    "key": "layout_grid_section",
+                    "name": "grid_section",
+                    "label": "Grid section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_row_text_column": {
+                    "key": "layout_row_text_column",
+                    "name": "row_text_column",
+                    "label": "Row text column",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_leadership_fullwidth_automatic_slider": {
+                    "key": "layout_leadership_fullwidth_automatic_slider",
+                    "name": "leadership_fullwidth_automatic_slider",
+                    "label": "Leadership fullwidth automatic slider",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_two_column_section": {
+                    "key": "layout_two_column_section",
+                    "name": "two_column_section",
+                    "label": "Two column section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_news_and_media": {
+                    "key": "layout_news_and_media",
+                    "name": "news_and_media",
+                    "label": "News and media",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_icon_row_section": {
+                    "key": "layout_icon_row_section",
+                    "name": "icon_row_section",
+                    "label": "Icon row section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_video_section": {
+                    "key": "layout_video_section",
+                    "name": "video_section",
+                    "label": "Video section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_full_width_with_three_column": {
+                    "key": "layout_full_width_with_three_column",
+                    "name": "full_width_with_three_column",
+                    "label": "Full width with three column",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_accordion": {
+                    "key": "layout_accordion",
+                    "name": "accordion",
+                    "label": "Accordion",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_case_study_display_section": {
+                    "key": "layout_case_study_display_section",
+                    "name": "case_study_display_section",
+                    "label": "Case study display section",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_testimonial_full_width_slider": {
+                    "key": "layout_testimonial_full_width_slider",
+                    "name": "testimonial_full_width_slider",
+                    "label": "Testimonial full width slider",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_bottom_cta_banner": {
+                    "key": "layout_bottom_cta_banner",
+                    "name": "bottom_cta_banner",
+                    "label": "Bottom CTA banner",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_image_and_text": {
+                    "key": "layout_image_and_text",
+                    "name": "image_and_text",
+                    "label": "Image and text",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_row_gradient": {
+                    "key": "layout_row_gradient",
+                    "name": "row_gradient",
+                    "label": "Row gradient",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_section_title_bar": {
+                    "key": "layout_section_title_bar",
+                    "name": "section_title_bar",
+                    "label": "Section title bar",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_case_study_hub": {
+                    "key": "layout_case_study_hub",
+                    "name": "case_study_hub",
+                    "label": "Case study hub",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_hero_banner_bottom_bar": {
+                    "key": "layout_hero_banner_bottom_bar",
+                    "name": "hero_banner_bottom_bar",
+                    "label": "Hero banner bottom bar",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_case_study_single_post_layout": {
+                    "key": "layout_case_study_single_post_layout",
+                    "name": "case_study_single_post_layout",
+                    "label": "Case study single post layout",
+                    "display": "block",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "min": "",
+            "max": "",
+            "button_label": "Add Section"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "page-flexible-content.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1760081332
+}
