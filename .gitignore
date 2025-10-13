@@ -1,13 +1,19 @@
+# === WordPress core ===
+wp/*
+!wp/wp-content/
+!wp/wp-config.php
+!wp/.htaccess
+
 # === WordPress content ===
-wp-content/uploads/
-wp-content/plugins/
-wp-content/themes/storefront/
+wp/wp-content/uploads/
+wp/wp-content/plugins/
+wp/wp-content/themes/storefront/
 
 # Track only the child theme
-!wp-content/themes/storefront-child/**
+!wp/wp-content/themes/storefront-child/**
 
 # Then ignore node_modules inside it again
-wp-content/themes/storefront-child/node_modules/
+wp/wp-content/themes/storefront-child/node_modules/
 
 # === Build and cache ===
 **/dist/
