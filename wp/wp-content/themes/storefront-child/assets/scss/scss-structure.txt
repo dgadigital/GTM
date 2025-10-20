@@ -1,6 +1,6 @@
 Folder PATH listing for volume OS
 Volume serial number is 90A7-8BF1
-C:\USERS\ARLON\WORDPRESS-DOCKER\WP-CONTENT\THEMES\STOREFRONT-CHILD\ASSETS\SCSS
+C:.
 ¦   main.scss
 ¦   scss-structure.txt
 ¦   style.scss
@@ -29,6 +29,7 @@ C:\USERS\ARLON\WORDPRESS-DOCKER\WP-CONTENT\THEMES\STOREFRONT-CHILD\ASSETS\SCSS
 ¦       
 +---sections
         _accordion.scss
+        _banner.scss
         _bottom_cta_banner.scss
         _case_study_display_section.scss
         _case_study_hub.scss

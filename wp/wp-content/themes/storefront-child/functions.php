@@ -5,89 +5,143 @@
  */
 
 require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+require_once get_stylesheet_directory() . '/inc/class-custom-walker-nav.php';
+
+// ==========================================================
+// 0. Force URLs to match current host (for Docker / BrowserSync)
+// ==========================================================
+add_filter('stylesheet_directory_uri', function ($uri) {
+    if (isset($_SERVER['HTTP_HOST'])) {
+        $uri = (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/wp-content/themes/storefront-child';
+    }
+    return $uri;
+});
+
 // ==========================================================
 // 1. Remove ALL Storefront CSS & JS
 // ==========================================================
-add_action('wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
+    // Remove parent styles
+    wp_dequeue_style('storefront-style');
+    wp_dequeue_style('storefront-gutenberg-blocks');
+    wp_dequeue_style('storefront-fonts');
+    wp_dequeue_style('storefront-icons');
 
-    // Dequeue all Storefront parent styles
-    wp_dequeue_style('storefront-style');                
-    wp_dequeue_style('storefront-gutenberg-blocks');     
-    wp_dequeue_style('storefront-fonts');                
-    wp_dequeue_style('storefront-icons');                
+    // Remove parent scripts
+    wp_dequeue_script('storefront-navigation');
+    wp_dequeue_script('storefront-skip-link-focus-fix');
+    wp_dequeue_script('storefront-header-cart');
+    wp_dequeue_script('storefront-sticky-header');
 
-    // Dequeue all Storefront scripts
-    wp_dequeue_script('storefront-navigation');          
-    wp_dequeue_script('storefront-skip-link-focus-fix'); 
-    wp_dequeue_script('storefront-header-cart');         
-    wp_dequeue_script('storefront-sticky-header');       
-
-    // Remove WooCommerce block styles (optional)
-    wp_dequeue_style('wc-block-style');                  
-    wp_dequeue_style('wc-blocks-style');                 
-}, 100); // Run late so it overrides the parent
+    // Optional WooCommerce block styles
+    wp_dequeue_style('wc-block-style');
+    wp_dequeue_style('wc-blocks-style');
+}, 20);
 
 // ==========================================================
-// 2. Disable ALL WooCommerce CSS (you’ll use your own)
+// 2. Disable ALL WooCommerce CSS
 // ==========================================================
 add_filter('woocommerce_enqueue_styles', '__return_empty_array');
 
 // ==========================================================
-// 3. Enqueue your custom CSS & JS (Bootstrap + Slick + Your theme)
+// 3. Enqueue Bootstrap, Slick, and Custom Theme Scripts
 // ==========================================================
-add_action('wp_enqueue_scripts', function() {
+add_action('wp_enqueue_scripts', function () {
+    // Ensure jQuery always loads
+    wp_enqueue_script('jquery');
 
-    // Bootstrap
+    // Detect correct host for dynamic URL (BrowserSync + Docker safe)
+    $theme_uri = (is_ssl() ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . '/wp-content/themes/storefront-child';
+
+    // --- Bootstrap ---
     wp_enqueue_style(
         'bootstrap-css',
-        get_stylesheet_directory_uri() . '/assets/vendor/bootstrap/dist/css/bootstrap.min.css',
+        $theme_uri . '/assets/vendor/bootstrap/dist/css/bootstrap.min.css',
         [],
         '5.3.8'
     );
-
     wp_enqueue_script(
         'bootstrap-js',
-        get_stylesheet_directory_uri() . '/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js',
+        $theme_uri . '/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js',
         ['jquery'],
         '5.3.8',
         true
     );
 
-    // Slick Carousel (optional)
+    // --- Slick Carousel ---
     wp_enqueue_style(
         'slick-css',
-        get_stylesheet_directory_uri() . '/assets/vendor/slick-carousel/slick/slick.css',
-        [],
-        null
+        $theme_uri . '/assets/vendor/slick-carousel/slick/slick.css',
+        ['bootstrap-css'],
+        '1.8.1'
+    );
+    wp_enqueue_style(
+        'slick-theme-css',
+        $theme_uri . '/assets/vendor/slick-carousel/slick/slick-theme.css',
+        ['slick-css'],
+        '1.8.1'
     );
     wp_enqueue_script(
         'slick-js',
-        get_stylesheet_directory_uri() . '/assets/vendor/slick-carousel/slick/slick.min.js',
+        $theme_uri . '/assets/vendor/slick-carousel/slick/slick.min.js',
         ['jquery'],
-        null,
+        '1.8.1',
         true
     );
 
-    // Your compiled child theme CSS & JS
-    wp_enqueue_style(
-        'child-style',
-        get_stylesheet_directory_uri() . '/assets/css/style.min.css',
-        ['bootstrap-css'],
-        filemtime(get_stylesheet_directory() . '/assets/css/style.min.css')
-    );
-    wp_enqueue_script(
-        'child-scripts',
-        get_stylesheet_directory_uri() . '/assets/js/dist/bundle.min.js',
-        ['jquery', 'bootstrap-js'],
-        filemtime(get_stylesheet_directory() . '/assets/js/dist/bundle.min.js'),
-        true
-    );
-}, 110);
+    // --- Main Compiled Theme CSS ---
+    $style_path  = get_stylesheet_directory() . '/assets/css/style.min.css';
+    $bundle_path = get_stylesheet_directory() . '/assets/js/dist/bundle.min.js';
+
+    if (file_exists($style_path)) {
+        wp_enqueue_style(
+            'child-style',
+            $theme_uri . '/assets/css/style.min.css',
+            ['bootstrap-css', 'slick-theme-css'], // ensure order
+            filemtime($style_path)
+        );
+    }
+
+    // --- Child Scripts (compiled JS bundle) ---
+    if (file_exists($bundle_path)) {
+        wp_enqueue_script(
+            'child-scripts',
+            $theme_uri . '/assets/js/dist/bundle.min.js',
+            ['jquery', 'bootstrap-js', 'slick-js'],
+            filemtime($bundle_path),
+            true
+        );
+    }
+
+    // --- Ensure Customizer CSS (inline styles) is last ---
+    // The Customizer injects `wp_add_inline_style('storefront-style', ...)`
+    // so we hook your CSS before that by using 'customize_preview_init'
+    add_action('wp_footer', function () {
+        echo "<script>console.log('✅ Slick status:', typeof jQuery.fn.slick);</script>";
+    });
+}, 30);
 
 // ==========================================================
-// 4. Remove Storefront's default content wrappers
+// 3.5 Ensure style.min.css is SECOND TO LAST (before Customizer)
 // ==========================================================
-add_action('after_setup_theme', function() {
+add_action('wp_enqueue_scripts', function () {
+    // Remove default child style.css that WordPress appends last
+    wp_dequeue_style('storefront-child-style');
+    wp_deregister_style('storefront-child-style');
+}, 50);
+
+
+// ==========================================================
+// 4. Safety net – Force print enqueued JS in footer
+// ==========================================================
+add_action('wp_footer', function () {
+    wp_print_scripts(['bootstrap-js', 'slick-js', 'child-scripts']);
+}, 100);
+
+// ==========================================================
+// 5. Remove Storefront's default content wrappers
+// ==========================================================
+add_action('after_setup_theme', function () {
     remove_action('storefront_before_content', 'storefront_before_content');
     remove_action('storefront_after_content', 'storefront_after_content');
     remove_action('storefront_content_top', 'storefront_content_top');
@@ -95,7 +149,7 @@ add_action('after_setup_theme', function() {
 });
 
 // ==========================================================
-// 5. Save and load ACF JSON (for version control)
+// 6. Save and Load ACF JSON for version control
 // ==========================================================
 add_filter('acf/settings/save_json', function ($path) {
     return get_stylesheet_directory() . '/acf-json';
@@ -108,45 +162,34 @@ add_filter('acf/settings/load_json', function ($paths) {
 });
 
 // ==========================================================
-// 6. Register Primary Navigation Menu
+// 7. Register Primary Navigation Menu
 // ==========================================================
-add_action('after_setup_theme', function() {
+add_action('after_setup_theme', function () {
     register_nav_menus([
-        'primary' => __('Primary Menu', 'storefront-child'),
+        'left'    => __('Left Menu', 'storefront-child'),   // Desktop left
+        'right'   => __('Right Menu', 'storefront-child'),  // Desktop right
+        'primary' => __('Primary Menu', 'storefront-child') // Mobile
     ]);
 });
 
+
+
 // ==========================================================
-// 7. Load Bootstrap Navwalker
+// 8. Enable menus for all public CPTs
 // ==========================================================
-
-
-/**
- * Automatically enable "Show in nav menus" for all public custom post types (after all are registered)
- */
-add_action('wp_loaded', function() {
-    $post_types = get_post_types([
-        'public' => true,
-        '_builtin' => false
-    ], 'objects');
-
+add_action('wp_loaded', function () {
+    $post_types = get_post_types(['public' => true, '_builtin' => false], 'objects');
     foreach ($post_types as $pt) {
-        if (!$pt->show_in_nav_menus) {
-            $pt->show_in_nav_menus = true;
-        }
+        $pt->show_in_nav_menus = true;
     }
 });
 
-/**
- * Force all ACF-created post types to have archives and show in nav menus
- */
-add_action('acf/init', function() {
-    add_action('wp_loaded', function() {
-        $post_types = get_post_types([
-            'public'   => true,
-            '_builtin' => false,
-        ], 'objects');
-
+// ==========================================================
+// 9. Force ACF-created CPTs to have archives + menus
+// ==========================================================
+add_action('acf/init', function () {
+    add_action('wp_loaded', function () {
+        $post_types = get_post_types(['public' => true, '_builtin' => false], 'objects');
         foreach ($post_types as $pt) {
             $pt->has_archive = true;
             $pt->show_in_nav_menus = true;
@@ -154,8 +197,10 @@ add_action('acf/init', function() {
     }, 20);
 });
 
-
-add_action('admin_init', function() {
+// ==========================================================
+// 10. Debug CPT output in admin logs
+// ==========================================================
+add_action('admin_init', function () {
     $pt = get_post_type_object('case-study');
     if ($pt) {
         error_log('CPT FOUND ✅');
@@ -164,4 +209,7 @@ add_action('admin_init', function() {
     } else {
         error_log('CPT NOT FOUND ❌');
     }
+});
+add_action('wp_enqueue_scripts', function() {
+    error_log('✅ wp_enqueue_scripts is running for Storefront Child');
 });

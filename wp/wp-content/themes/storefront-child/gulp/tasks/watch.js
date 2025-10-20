@@ -4,7 +4,7 @@
 require("dotenv").config();
 
 const gulp = require("gulp");
-const browserSync = require("browser-sync").create();
+const browserSync = require("./browserSync");
 const path = require("path");
 const { themePath } = require("./detectTheme");
 const generateSectionScss = require("./generateSectionScss");
@@ -39,7 +39,9 @@ function watch() {
   });
 
   // 🧩 Watch SCSS → run 'scss' task → inject CSS (no full reload)
-  gulp.watch(themeScss, gulp.series("scss")).on("change", browserSync.stream);
+  // gulp.watch(themeScss, gulp.series("scss")).on("change", browserSync.stream);
+gulp.watch(themeScss, gulp.series("scss"));
+
 
   // 🧩 Watch JS → run 'scripts' task → reload browser
   gulp.watch(themeJs, gulp.series("scripts", (done) => {

@@ -1,4 +1,65 @@
-@use 'abstracts/variables';
+// ==========================================================
+// Storefront Child Theme – Main SCSS Entry (modern @use version)
+// ==========================================================
+
+// ----------------------------------------------------------
+// 1. ABSTRACTS
+// ----------------------------------------------------------
+@use 'abstracts/functions';
+@use 'abstracts/mixins';
+@use 'abstracts/variables' as *; // makes $color-* vars global
+
+// ----------------------------------------------------------
+// 2. BASE
+// ----------------------------------------------------------
+@use 'base/reset';
+@use 'base/typography';
 @use 'base/globals';
+
+// ----------------------------------------------------------
+// 3. LAYOUT
+// ----------------------------------------------------------
 @use 'layout/header';
 @use 'layout/footer';
+
+// ----------------------------------------------------------
+// 4. COMPONENTS
+// ----------------------------------------------------------
+@use 'components/buttons';
+@use 'components/forms';
+@use 'components/cards';
+
+// ----------------------------------------------------------
+// 5. PAGES
+// ----------------------------------------------------------
+@use 'pages/home';
+
+// ----------------------------------------------------------
+// 6. SECTIONS
+// ----------------------------------------------------------
+@use 'sections/accordion';
+@use 'sections/banner';
+@use 'sections/bottom_cta_banner';
+@use 'sections/case_study_display_section';
+@use 'sections/case_study_hub';
+@use 'sections/case_study_single_post_layout';
+@use 'sections/full_width_block_hover';
+@use 'sections/full_width_text_section';
+@use 'sections/full_width_with_three_column';
+@use 'sections/grid_section';
+@use 'sections/hero_banner';
+@use 'sections/hero_banner_bottom_bar';
+@use 'sections/icon_column_section';
+@use 'sections/icon_row_section';
+@use 'sections/image_and_text';
+@use 'sections/info_card_blocks';
+@use 'sections/leadership_fullwidth_automatic_slider';
+@use 'sections/logo_slider';
+@use 'sections/news_and_media';
+@use 'sections/row_gradient';
+@use 'sections/row_text_column';
+@use 'sections/section_title_bar';
+@use 'sections/testimonial_card_slider';
+@use 'sections/testimonial_full_width_slider';
+@use 'sections/two_column_section';
+@use 'sections/video_section';
