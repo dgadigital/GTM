@@ -1,0 +1,26 @@
+{
+    "key": "ui_options_page_68f71617a3959",
+    "title": "Child Theme Settings",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Child Theme Settings",
+    "menu_slug": "child-theme-settings",
+    "parent_slug": "none",
+    "advanced_configuration": 0,
+    "icon_url": "",
+    "menu_title": "",
+    "position": "",
+    "redirect": 0,
+    "description": "",
+    "menu_icon": {
+        "type": "dashicons",
+        "value": "dashicons-edit"
+    },
+    "update_button": "Update",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1761023585
+}

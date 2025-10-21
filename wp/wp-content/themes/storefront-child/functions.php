@@ -168,7 +168,8 @@ add_action('after_setup_theme', function () {
     register_nav_menus([
         'left'    => __('Left Menu', 'storefront-child'),   // Desktop left
         'right'   => __('Right Menu', 'storefront-child'),  // Desktop right
-        'primary' => __('Primary Menu', 'storefront-child') // Mobile
+        'primary' => __('Primary Menu', 'storefront-child'), // Mobile
+        'footer' => __('Footer Menu', 'storefront-child') // Footer
     ]);
 });
 
@@ -212,4 +213,21 @@ add_action('admin_init', function () {
 });
 add_action('wp_enqueue_scripts', function() {
     error_log('✅ wp_enqueue_scripts is running for Storefront Child');
+});
+
+
+add_filter('get_custom_logo', function ($html) {
+    // Get logo ID
+    $custom_logo_id = get_theme_mod('custom_logo');
+    if (!$custom_logo_id) return $html;
+
+    // Get stored alt text or fallback to site name
+    $alt = get_post_meta($custom_logo_id, '_wp_attachment_image_alt', true);
+    if (empty($alt)) {
+        $alt = get_bloginfo('name');
+    }
+
+    // Replace or insert the alt attribute
+    $html = preg_replace('/alt="[^"]*"/', 'alt="' . esc_attr($alt) . '"', $html);
+    return $html;
 });
