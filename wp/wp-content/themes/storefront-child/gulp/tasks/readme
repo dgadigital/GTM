@@ -1,0 +1,175 @@
+It documents every task, its purpose, relationships, and how to use the system from scratch.
+This version is written for developers — concise but thorough, and formatted for GitHub or project handover use.
+
+# 🧩 Modular Gulp Build System for WordPress Themes
+
+This Gulp setup automates asset compilation, vendor management, and file generation for custom WordPress themes.  
+It ensures consistent folder structures, live-reloading, and ready-to-use SCSS/JS pipelines for fast theme development.
+
+---
+
+## 🚀 Quick Start
+
+### 1. **Install Dependencies**
+```bash
+npm install
+
+2. Start Gulp
+gulp
+
+
+That’s it — your SCSS, JS, and BrowserSync environment will start automatically.
+
+🧱 Folder Structure
+wp-content/
+└── themes/
+    └── your-theme/
+        ├── assets/
+        │   ├── js/
+        │   │   ├── src/
+        │   │   └── dist/
+        │   ├── scss/
+        │   │   └── sections/
+        │   └── vendor/
+        ├── sections/
+        │   ├── partial-hero_banner.php
+        │   ├── partial-feature_grid.php
+        │   └── ...
+        ├── functions.php
+        ├── style.css
+        ├── header.php
+        ├── footer.php
+        ├── index.php
+        ├── gulp/
+        │   └── tasks/
+        │       ├── browserSync.js
+        │       ├── checkJsFolder.js
+        │       ├── checkScssFolder.js
+        │       ├── checkVendorEnqueue.js
+        │       ├── copyVendor.js
+        │       ├── dbWatch.js
+        │       ├── default.js
+        │       ├── detectTheme.js
+        │       ├── ensureNodeVersion.js
+        │       ├── generateSectionScss.js
+        │       ├── generateThemeFiles.js
+        │       ├── scripts.js
+        │       ├── scss.js
+        │       └── watch.js
+        ├── gulpfile.js
+        └── package.json
+
+⚙️ How It Works
+🧭 Core Workflow (gulpfile.js)
+
+The main gulpfile.js automatically:
+
+Checks Node version (ensureNodeVersion.js)
+
+Creates missing WP files (generateThemeFiles.js)
+
+Ensures JS/SCSS folders exist (checkJsFolder.js, checkScssFolder.js)
+
+Copies vendor libraries (copyVendor.js)
+
+Starts default Gulp tasks (default.js)
+
+🧩 Task Breakdown
+File	Description	Triggered By
+browserSync.js	Sets up BrowserSync proxy for live reload	watch.js
+checkJsFolder.js	Ensures /assets/js/src and /assets/js/dist exist; adds default main.js	gulpfile.js
+checkScssFolder.js	Ensures /assets/scss and subfolders exist; adds default style.scss	gulpfile.js
+checkVendorEnqueue.js	Verifies vendor files are enqueued in functions.php	Manual / optional
+copyVendor.js	Copies Bootstrap & Slick from node_modules to /assets/vendor/	default.js
+dbWatch.js	Monitors WP REST API (posts, comments, settings) and reloads BrowserSync on change	default.js
+default.js	Main entry: runs copyVendor, then parallel tasks (scss, scripts, watch, dbWatch)	gulpfile.js
+detectTheme.js	Auto-detects current WP theme path & validates structure	Used by many tasks
+ensureNodeVersion.js	Ensures .nvmrc exists with a default Node version (18)	gulpfile.js
+generateSectionScss.js	Creates _sectionname.scss for each partial-*.php in /sections	watch.js
+generateThemeFiles.js	Creates all missing WP theme files (e.g., functions.php, style.css, etc.)	Manual / gulpfile.js
+scripts.js	Bundles and transpiles JS (via Webpack + Babel) to bundle.min.js	default.js
+scss.js	Compiles SCSS → CSS, autoprefixes, minifies, writes sourcemaps	default.js
+watch.js	Watches SCSS/JS/PHP changes, auto-reloads BrowserSync, and generates SCSS for new sections	default.js
+🔗 Task Relationships (Dependency Tree)
+gulpfile.js
+ ├── ensureNodeVersion.js
+ ├── generateThemeFiles.js
+ ├── checkJsFolder.js
+ ├── checkScssFolder.js
+ ├── copyVendor.js
+ └── default.js
+      ├── scss.js
+      │    └── detectTheme.js
+      ├── scripts.js
+      │    └── detectTheme.js
+      ├── watch.js
+      │    ├── browserSync.js
+      │    └── generateSectionScss.js
+      └── dbWatch.js
+
+
+🟡 Standalone tasks (not triggered automatically):
+
+checkVendorEnqueue.js
+
+generateThemeFiles.js
+
+🧠 Optional Enhancements
+🔹 Auto-run generateThemeFiles.js
+
+Add this near the top of your gulpfile.js:
+
+const generateThemeFiles = require("./gulp/tasks/generateThemeFiles");
+generateThemeFiles();
+
+🔹 Run vendor verification automatically
+
+In default.js:
+
+gulp.task("default", gulp.series(
+  "copyVendor",
+  "checkVendorEnqueue", // verify enqueues
+  gulp.parallel("scss", "scripts", "watch", "dbWatch")
+));
+
+🧩 Example Console Output
+✅ Detected WordPress theme: Digital Growth
+✅ Created missing style.css
+✅ Created missing functions.php
+✅ Created JS source folder: assets/js/src
+✅ Created JS dist folder: assets/js/dist
+✅ Created JS entry file: main.js
+✅ Bootstrap & Slick.js copied to assets/vendor/
+Checking vendor enqueues...
+
+✅ Enqueued: bootstrap.min.css
+✅ Enqueued: bootstrap.bundle.min.js
+✅ Enqueued: slick-theme.css
+✅ Enqueued: slick.css
+✅ Enqueued: slick.min.js
+
+🧠 Watching files...
+⚡ JS source changed → rebuilding bundle...
+✅ JavaScript bundled successfully.
+
+🧰 Available Commands
+Command	Description
+gulp	Runs full build (copy vendors, compile SCSS/JS, start BrowserSync, DB watcher)
+gulp scss	Compiles SCSS only
+gulp scripts	Bundles JS only
+gulp watch	Watches for file changes only
+gulp dbWatch	Runs database watcher manually
+node gulp/tasks/checkVendorEnqueue.js	Checks if all vendor assets are enqueued
+node gulp/tasks/generateThemeFiles.js	Creates missing theme structure manually
+🧩 Requirements
+
+Node.js ≥ 18
+
+npm ≥ 9
+
+WordPress theme located under wp-content/themes/
+
+🧩 Credits
+
+Developed for modern WordPress theme automation with Gulp, Webpack, and SCSS by Vincent Flores.
+Designed for speed, modularity, and team consistency.

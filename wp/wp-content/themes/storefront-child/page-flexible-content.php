@@ -13,7 +13,7 @@ $section_index = 1;
             the_row();
             
             // Get layout type
-            $layout = str_replace('_', '-', get_row_layout());
+            $layout = get_row_layout();
 
             // Define the base path for the template part files
             $sections = 'sections/partial';
@@ -25,4 +25,6 @@ $section_index = 1;
         }
     }
 ?>
+
+
 <?php get_footer(); ?>
