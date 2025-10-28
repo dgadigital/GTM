@@ -116,9 +116,7 @@ add_action('wp_enqueue_scripts', function () {
     // --- Ensure Customizer CSS (inline styles) is last ---
     // The Customizer injects `wp_add_inline_style('storefront-style', ...)`
     // so we hook your CSS before that by using 'customize_preview_init'
-    add_action('wp_footer', function () {
-        echo "<script>console.log('✅ Slick status:', typeof jQuery.fn.slick);</script>";
-    });
+    
 }, 30);
 
 // ==========================================================
@@ -231,3 +229,46 @@ add_filter('get_custom_logo', function ($html) {
     $html = preg_replace('/alt="[^"]*"/', 'alt="' . esc_attr($alt) . '"', $html);
     return $html;
 });
+
+/**
+ * Disable the content editor for pages using the "Flexible Content" template.
+ * Works for both block editor and classic editor, without affecting other pages.
+ */
+add_action('load-post.php', 'dga_disable_editor_for_flexible_template');
+add_action('load-post-new.php', 'dga_disable_editor_for_flexible_template');
+
+function dga_disable_editor_for_flexible_template() {
+    // Get current screen; only proceed on page edit screens
+    $screen = get_current_screen();
+    if (empty($screen) || $screen->post_type !== 'page') {
+        return;
+    }
+
+    // Resolve the post ID (existing or new)
+    $post_id = isset($_GET['post']) ? (int) $_GET['post'] : (isset($_POST['post_ID']) ? (int) $_POST['post_ID'] : 0);
+    if (!$post_id) {
+        return;
+    }
+
+    // Match by the actual template file name, e.g. page-flexible-content.php
+    $template_file = get_page_template_slug($post_id);
+    if ($template_file !== 'page-flexible-content.php') {
+        return;
+    }
+
+    // 1) Disable the Block Editor (Gutenberg) for this post.
+    add_filter('use_block_editor_for_post', function($use_block, $post) use ($post_id) {
+        return ($post && (int) $post->ID === $post_id) ? false : $use_block;
+    }, 10, 2);
+
+    // 2) Remove Classic Editor content box for this request only.
+    //    (remove_post_type_support is global, so do it late and only for this load.)
+    add_action('admin_head', function() {
+        remove_post_type_support('page', 'editor');
+    });
+
+    // Optional: also hide the editor area via CSS in case another plugin re-adds it.
+    add_action('admin_head', function() {
+        echo '<style>#postdivrich, #post-body-content { display:none !important; }</style>';
+    });
+}

@@ -1,1 +1,43 @@
 /* Styles for hero_banner section */
+.hero-banner {
+
+@media (min-width:992px) {
+    min-height: 745px;
+    padding: 173px 0 165px 0;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width:991px) {
+    
+    padding: 185px 0 100px 0;
+}
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .hero-content-center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;    
+    }
+    .hero-title{
+        max-width: 741px;
+        margin: 0 auto;
+    }
+    .hero-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        .btn{
+            width: 250px;
+        }
+    }
+  }
+}

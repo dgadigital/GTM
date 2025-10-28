@@ -1,0 +1,3 @@
+open docker run containers
+open folder on cmd and change directory to the child theme folder ex: cd C:\Users\ARLON\wordpress-docker\wp\wp-content\themes\storefront-child
+run yarn gulp

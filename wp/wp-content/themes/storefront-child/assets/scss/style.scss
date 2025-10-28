@@ -7,20 +7,22 @@
 // ----------------------------------------------------------
 @use 'abstracts/functions';
 @use 'abstracts/mixins';
-@use 'abstracts/variables' as *; // makes $color-* vars global
+@use 'abstracts/variables' as *;
+@use 'abstracts/fonts' as *;
+ // makes $color-* vars global
 
 // ----------------------------------------------------------
 // 2. BASE
 // ----------------------------------------------------------
 @use 'base/reset';
-@use 'base/typography';
 @use 'base/globals';
+@use 'base/typography' as *;
 
 // ----------------------------------------------------------
 // 3. LAYOUT
 // ----------------------------------------------------------
-@use 'layout/header';
-@use 'layout/footer';
+@use 'layout/header' as *;
+@use 'layout/footer' as *;
 
 // ----------------------------------------------------------
 // 4. COMPONENTS
@@ -30,12 +32,7 @@
 @use 'components/cards';
 
 // ----------------------------------------------------------
-// 5. PAGES
-// ----------------------------------------------------------
-@use 'pages/home';
-
-// ----------------------------------------------------------
-// 6. SECTIONS
+// 5. SECTIONS
 // ----------------------------------------------------------
 @use 'sections/accordion';
 @use 'sections/banner';

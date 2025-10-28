@@ -106,3 +106,4 @@ $locations = get_nav_menu_locations();
 
   </div>
 </nav>
+<main>

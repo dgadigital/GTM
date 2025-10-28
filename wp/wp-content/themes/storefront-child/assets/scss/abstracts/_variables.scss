@@ -1,5 +1,16 @@
 // ==========================================
 // _globals.scss
+// ==========================================
+// Typography
+// ==========================================
+$font-primary: 'Inter';
+$font-secondary: 'Georgia'; // optional backup font
+
+
+
+
+
+// ==========================================
 // Global Colors
 // ==========================================
 
@@ -32,3 +43,105 @@ $dark-0: rgba(35, 31, 32, 0);
 // Gradients
 $gradient-black-50: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 $gradient-dark-50: linear-gradient(180deg, rgba(35, 31, 32, 1) 0%, rgba(35, 31, 32, 0) 100%);
+
+
+// ==========================================
+// FLUID TYPOGRAPHY SYSTEM
+// Viewport range: 375px → 1992px
+// Base font: 16px = 1rem
+// ==========================================
+
+// === fs-70 (≈ H1) ===
+$fs-70-min: 3.25rem; // 52px
+$fs-70-max: 4.375rem; // 70px
+$fs-70-fluid: calc(#{$fs-70-min} + (1.125rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-70: clamp($fs-70-min, $fs-70-fluid, $fs-70-max);
+
+// === fs-50 ===
+$fs-50-min: 2.375rem; // 38px
+$fs-50-max: 3.125rem; // 50px
+$fs-50-fluid: calc(#{$fs-50-min} + (0.75rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-50: clamp($fs-50-min, $fs-50-fluid, $fs-50-max);
+
+// === fs-40 ===
+$fs-40-min: 1.875rem; // 30px
+$fs-40-max: 2.5rem; // 40px
+$fs-40-fluid: calc(#{$fs-40-min} + (0.625rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-40: clamp($fs-40-min, $fs-40-fluid, $fs-40-max);
+
+// === fs-30 ===
+$fs-30-min: 1.375rem; // 22px
+$fs-30-max: 1.875rem; // 30px
+$fs-30-fluid: calc(#{$fs-30-min} + (0.5rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-30: clamp($fs-30-min, $fs-30-fluid, $fs-30-max);
+
+// === fs-25 ===
+$fs-25-min: 1.1875rem; // 19px
+$fs-25-max: 1.5625rem; // 25px
+$fs-25-fluid: calc(#{$fs-25-min} + (0.375rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-25: clamp($fs-25-min, $fs-25-fluid, $fs-25-max);
+
+// === fs-23 ===
+$fs-23-min: 1.0625rem; // 17px
+$fs-23-max: 1.4375rem; // 23px
+$fs-23-fluid: calc(#{$fs-23-min} + (0.375rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-23: clamp($fs-23-min, $fs-23-fluid, $fs-23-max);
+
+// === fs-20 ===
+$fs-20-min: 0.9375rem; // 15px
+$fs-20-max: 1.25rem; // 20px
+$fs-20-fluid: calc(#{$fs-20-min} + (0.3125rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-20: clamp($fs-20-min, $fs-20-fluid, $fs-20-max);
+
+// === fs-16 ===
+$fs-16-min: 0.9375rem; // 15px  
+$fs-16-max: 1rem; // 16px  
+$fs-16-fluid: calc(#{$fs-16-min} + (0.0625rem * ((100vw - 23.4375rem) / 101.0625rem)));  
+$fs-16: clamp($fs-16-min, $fs-16-fluid, $fs-16-max);
+
+
+// === fs-15 ===
+$fs-15-min: 0.6875rem; // 11px
+$fs-15-max: 0.9375rem; // 15px
+$fs-15-fluid: calc(#{$fs-15-min} + (0.25rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-15: clamp($fs-15-min, $fs-15-fluid, $fs-15-max);
+
+// ==========================================
+// FLUID LINE HEIGHTS
+// Viewport range: 375px → 1992px
+// ==========================================
+
+// === lh-78 ===
+$lh-78-min: 3.75rem;  // ~60px
+$lh-78-max: 4.875rem; // 78px
+$lh-78-fluid: calc(#{$lh-78-min} + (1.125rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$lh-78: clamp($lh-78-min, $lh-78-fluid, $lh-78-max);
+
+// === lh-60 ===
+$lh-60-min: 3.125rem; // ~50px
+$lh-60-max: 3.75rem;  // 60px
+$lh-60-fluid: calc(#{$lh-60-min} + (0.625rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$lh-60: clamp($lh-60-min, $lh-60-fluid, $lh-60-max);
+
+// === lh-30 ===
+$lh-30-min: 1.25rem;  // 20px
+$lh-30-max: 1.875rem; // 30px
+$lh-30-fluid: calc(#{$lh-30-min} + (0.625rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$lh-30: clamp($lh-30-min, $lh-30-fluid, $lh-30-max);
+
+// === lh-22 ===
+$lh-22-min: 1.25rem;  // 20px  
+$lh-22-max: 1.375rem; // 22px  
+$lh-22-fluid: calc(#{$lh-22-min} + (0.125rem * ((100vw - 23.4375rem) / 101.0625rem)));  
+$lh-22: clamp($lh-22-min, $lh-22-fluid, $lh-22-max);
+
+// === lh-20 ===
+$lh-20-min: 0.875rem; // 14px
+$lh-20-max: 1.25rem;  // 20px
+$lh-20-fluid: calc(#{$lh-20-min} + (0.375rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$lh-20: clamp($lh-20-min, $lh-20-fluid, $lh-20-max);
+
+// === lh-auto (no scaling needed) ===
+$lh-auto: auto;
+$lh-normal: normal;
+

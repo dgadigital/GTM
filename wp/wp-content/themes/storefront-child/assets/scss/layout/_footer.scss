@@ -58,10 +58,11 @@ footer {
                 text-decoration: none;
                 color: $white;
                 text-align: center;
-                font-size: 16px;
+                font-size: $fs-16;
+
                 font-style: normal;
                 font-weight: 400;
-                line-height: 60px; /* 375% */
+                line-height: $lh-60; /* 375% */
                 text-transform: uppercase;
             }
         }
@@ -91,10 +92,10 @@ footer {
             border-radius: 5px;
             border: 1px solid $orange;
             text-align: center;
-            font-size: 15px;
+            font-size: $fs-15;
             font-style: normal;
             font-weight: 400;
-            line-height: normal;
+            line-height: $lh-normal;
             padding: 15px 0;
         }
         .address-wrapper {
@@ -109,10 +110,10 @@ footer {
             }
             .phone {
                 color: $white;
-                font-size: 15px;
+                font-size: $fs-15;
                 font-style: italic;
                 // font-weight: 500;
-                line-height: 22px; /* 200% */
+                line-height: $lh-22; /* 200% */
 
                 &::before{
                     content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='22' height='21' viewBox='0 0 22 21' fill='none'%3E%3Crect width='22' height='21' fill='url(%23pattern0_72_1514)'/%3E%3Cdefs%3E%3Cpattern id='pattern0_72_1514' patternContentUnits='objectBoundingBox' width='1' height='1'%3E%3Cuse xlink:href='%23image0_72_1514' transform='matrix(0.00954545 0 0 0.01 0.0227273 0)'/%3E%3C/pattern%3E%3Cimage id='image0_72_1514' width='100' height='100' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEKklEQVR4nO3dSYhcRRgH8I4LGldUFPVg3MAouIASvKko5uaKqAcVPBgwiRHBBVERDMGTUVwDkaAgiF4Et0NADXowTDAa8aIhGDUkSoxRIWJi/EnRz8uYwZ5+1V1d9ep3n5n6z9c9/arqq5per6qqqqqqqqqqqqqqjsAZeBKb8Du+wXIckXpsnYLj8TL2ObBPMTf1ODsBV2G7/7cy9ViLh9ux12DCu+f81GMuFhbhb7OzNvW4i4SbsN9wbkg9/qLgHPxmeFvrU1ckOLR5pG3r0Vhj6jTcL449mJc6T9ZwNHaL5/XUmbKG+8R3eepc2cLnIyjIFzg4dbbs4NQh5hyDWpw6X3Zwq9H5GSekzpiV8JhqtJ5PnTErWD3igvyFC1PnzAZeMXqfYE7qrFnAGuNxS+qsWcDTYyrIdzgydd6JhyXG54HUeSceFo6xIBtT5514YZ7QYv9jtranzpsFTI2pIB+nzpoFrBhTQe5InTULuHgMxZjCQamzZgOfjbAY+3Fp6oxZwd0jLMjq1Pmyg2Mj7xr+axdOSp0vS3hcfEtS58r9XRJe0bF8iUNS58oaHotYkCtT58kejmoWAtv6OnWWYuDGCAV5J3WOooRfaMuCTKXOUBSc1XQhDmsf5qfOURQsa/ku+Sj0DKfOUYywD453Wxbl2dQ5ihJm2djRsiiLUucoCq5tWZC9uCx1jqJEaIb4EaelzlGMsASCD1oW5SsclzpLafvvW1oWZR0OT52lGLgEf7Qsyhv1qEL8M+xtrantpZO3d/Jc6hxFwQsRivJibX6IJHwO4K0IRXmtbmTF3T/ZEKEob+Kw1HmKgJOxOUJR1tV5SiQ4vblaQ4TJ47yWf0bvbO7x2tns6z/UyaMQOBvbIhRlJ64Yco60fobvua15XJ/TxQtsdkQoStjgWjqLFYRnBuziDwVb0OsSXNAciY5h1UybXM362rIhGvxC4V7tVAMfFuDXSEUJH/bnTts4Wxjh9qLwolncmWUc/aLsini8OjSEv49vxb8GpBt3s+Ai/CQPb4enxV7pMB8/yMOeZp1ubhcuYt4iH9+Hx+ReByaPm+VlLc7rFb7MskFewpxoZbF/xvQXJN+Tn/XF3rqqP6kLd8rnZkWvZHhwhDfajUL5xyxwW4TGiXHZ3evQWfmtJt+mXlfgRHxosi3vdYn+h/247vAapke5m+2wuGYC18Be6nWZ/lGIsOA3CcKOY93v19/7uKfl8bq2/uzM8vygcGaEg6jDCHOkeq3UTHB9pHP0g26K3TXjYKq+0NKDRyJfAzJd+E9D1zU/sprF3SzhKpBfIhdjY+ieGWgQ1X/hmOY/y7W9OzK84+6tfcbx9/CfaJbK9w/4oR2aJ5aGbYGYY6kO3EB3dXNb3lNNj9eq5gjEw7gZp0z/uqqqqqqqqqqqqqqqqqqqql5K/wDHuSQ0zQ6xfgAAAABJRU5ErkJggg=='/%3E%3C/defs%3E%3C/svg%3E");
@@ -127,10 +128,10 @@ footer {
                     width: 22px;
                 }
                 color: $white;
-                font-size: 15px;
+                font-size: $fs-15;
                 font-style: italic;
                 // font-weight: 500;
-                line-height: 22px;
+                line-height: $lh-22;
             }
         }
     }
@@ -161,10 +162,10 @@ footer {
     background-color: $gray-400;
     *{
         color: $white;
-        font-size: 16px;
+        font-size: $fs-16;
         font-style: normal;
         font-weight: 400;
-        line-height: 60px; /* 375% */
+        line-height: $lh-60; /* 375% */
         text-decoration: none;
     }
     .bottom-row-wrapper{

@@ -2,15 +2,47 @@
 
 
 
-nav {
-  background: $dark;
 
+nav {
+  background: transparent;  
+  &.navbar{
+    padding-top: 36px;
+  }
+
+  &.navbar {
+    transition: background-color 0.4s ease, box-shadow 0.3s ease;
+    background-color: transparent;
+    &.scrolled {
+      background-color: $dark; /* or your preferred color */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+  }
+
+
+
+
+
+  @media (max-width:991px) {
+
+
+
+    
+&.navbar {
+  
+  transition: background-color 0.3s ease;
+}
+
+/* When the collapse is open */
+&.navbar:has(.navbar-collapse.show) {
+  background: $dark
+}
+  }
     
     
       .nav-link {
         color: $white;
         font-weight: 600;
-        font-size: 16px;
+        font-size: $fs-16;
         padding: 10px 15px;
         text-transform: uppercase;
         transition: color 0.3s ease;

@@ -1,0 +1,22 @@
+@use 'abstracts/variables' as *;
+
+.btn{
+            border-radius: 5px;
+            font-family: $font-primary;
+            font-size: $fs-15;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            line-height: $lh-auto;
+            border: 1px solid $orange;
+            padding: 15px 27px;
+        }
+.btn-primary {
+            background: $orange;
+            color: $black;
+            
+        }
+.btn-secondary {
+            background: $black;
+            color: $orange;
+        }
