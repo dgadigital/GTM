@@ -1,1 +1,61 @@
 /* Styles for grid_section section */
+.grid-section {
+  padding: 60px 20px;
+  background: #f7f7f7;
+}
+
+/* --- base grid --- */
+.grid-section .grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 240px;      /* base row height */
+  gap: 10px;
+  grid-auto-flow: dense;
+}
+
+/* --- base item --- */
+.grid-section .item {
+  position: relative;
+  background: #c9ccd1;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #fff;
+  text-align: center;
+}
+.grid-section .overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.45);
+}
+.grid-section .overlay h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+  padding: 0 10px;
+}
+
+/* --- size rules --- */
+.item.small { grid-column: span 2; grid-row: span 1; }
+.item.half  { grid-column: span 3; grid-row: span 1; } /* ≈1.5× width */
+.item.wide  { grid-column: span 4; grid-row: span 1; } /* 2× width  */
+.item.tall  { grid-column: span 2; grid-row: span 2; } /* 2× height */
+
+/* --- responsive collapse --- */
+@media (max-width: 992px) {
+  .grid-section .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
+  }
+  .grid-section .item {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-section .grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 180px;
+  }
+}

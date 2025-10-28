@@ -14,9 +14,18 @@
 .btn-primary {
             background: $orange;
             color: $black;
-            
+            &:hover {
+                background: $black;
+                border: 1px solid $orange;
+                color: $orange;
+            }
         }
 .btn-secondary {
             background: $black;
             color: $orange;
+            &:hover {
+                background: $orange;
+                border: 1px solid $black;
+                color: $black;
+            }
         }

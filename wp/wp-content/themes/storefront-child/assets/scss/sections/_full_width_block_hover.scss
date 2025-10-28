@@ -2,16 +2,39 @@
 
 /* Styles for full_width_block_hover section */
 .fullwidth-block-hover {
+  display: flex;
+  flex-direction: column;
   .carousel {
     &.slick-initialized {
       .slick-list {
         .slick-track {
           .slick-slide {
+            .slick-inner{
+              position: relative;
+              overflow: hidden;
+              aspect-ratio: 16 / 10;
+            }
             .card {
               margin: 0;
               padding: 0;
               aspect-ratio: 16 / 10;
               overflow: hidden;
+              border: none;
+              border-radius: 0px;
+              background: transparent;
+              .card-image {
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  }
+                }
 
               .card-content {
                 background-size: cover;
@@ -39,10 +62,13 @@
                   }
 
                   .icon {
+                    margin-bottom: 0px;
+                    height: 0;
+                    width: auto;
                     opacity: 0;
                     transform: translateY(10px);
                     transition: all 0.3s ease;
-                    margin-bottom: 10px;
+                    
                   }
 
                   .short {
@@ -76,6 +102,8 @@
               &:hover {
                 .content-wrap {
                   .icon {
+                    margin-bottom: 10px;
+                    height: 111px;
                     opacity: 1;
                     transform: translateY(0);
                   }
@@ -97,4 +125,47 @@
       }
     }
   }
+  .button-wrapper{
+    display: flex;
+    justify-content: space-between;
+    height: 63px;
+    margin: 0 53px;
+    @media (max-width: 992px){
+      margin: 0 20px;
+      
+    }
+    .slick-prev, .slick-next{
+      width: fit-content;
+      height: 30px;
+      position: relative;
+      left: unset;
+      right: unset;
+      transform: unset;
+      color: $white;
+      text-align: center;
+      font-size: $fs-15!important;
+      font-style: normal;
+      font-weight: 400;
+      line-height: $lh-30!important; /* 176.471% */
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      gap:10px;
+      text-transform: uppercase;
+      &::before{
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='36' height='38' viewBox='0 0 36 38' fill='none'%3E%3Crect width='36' height='38' fill='url(%23pattern0_51_286)'/%3E%3Cdefs%3E%3Cpattern id='pattern0_51_286' patternContentUnits='objectBoundingBox' width='1' height='1'%3E%3Cuse xlink:href='%23image0_51_286' transform='matrix(0.01 0 0 0.00947368 0 0.0263158)'/%3E%3C/pattern%3E%3Cimage id='image0_51_286' width='100' height='100' preserveAspectRatio='none' xlink:href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAACXBIWXMAAAsTAAALEwEAmpwYAAADWklEQVR4nO3czYvNURzH8Uum8WzMYMKChYTSlFiIbGjEQgl/ARqJ0liYjVkooimzEFLKhkRhQR5iY5IMIVKkLIgoD3luxsO89cuZmqYZ97rzO7/zPb/5vGpqFvfe8/2e7/3e+3s45xYKIiIiIiIiIiIiIiIiIiIiIiIiIiIiMigAI4HFwHpgN3AEOAGcdP/vBTa6x4wIHW8uAZOBRqAN6KB0ne4524CpofOIHrAAOAP8YuB+AqeT1wydV3SA6cA5/OhyhZkWIK8h7qN0VTQdC2wBvuHfZ6Ahw7wmArd6jP8DaCpYBYx2H09ZO57Fl7878OhLS8EaYALQTjg3gSqP+Q0Fvv5jfDtFAcYDDwnvLjDOY55fiowfvijAcOAGdlwDKjzlerSE8cMWBTiMPa2ech0L3DNbFGANNnUBKzzlXG2yKMAY4CV2PQdGecq9CrhdQgz7fYzfX1D7sK/ZY/52OsUFU+yIw4KPng+FbXQKsJN4bPc8F2E7xV3LeUY8HnuZCCudAiwiPnWpT4SVTgF2EZ+mVCfBUqcA14nPldQmwFqnuEvesXmbSvLWOgWYQrzOuptaWf0l19Tw2inAQs+TNljtKLcg9aEjz6lk0cekcgqyOnTkOVZfTkFWho46x2aXU5AloaPOqQv/XQxXkJmhI8+h5JylutyCVLilL7H5DgwrZAjYU0Jc94GagQ70iPi0pzbTpc1Ri9fO6DXYIeLTmspMWyuGG3At8VmeSvLWitFjK0FM17PeA5WpTYClYvQY/BjxOJD6BJRfjBpfAdS5pTbW/QZmeZkEK8XoEch57Ds1KIrhgplj/JykIzmRjf48I0drs5oHRWf0CqzSrTi3pt3jgmt7ndErwBnu0NKKN762ugFbTXZGP3cSs9jCVkyymnK+xzxfmS9GN2BZ4OWln5LNmB7zqyhyqG+nGN2Sdyfwmuy9AOZlkN8Dc98ZxQC1wNUMi3E52R2bUW5L+/jRgztmi9Frg2SD5y/7d8CGZK1xxrnNBQ66pT6NUf30R/LOcYeJybaAtHx0r+ltm0HuJTtjgU1uc2hXmdek2oDNyV740Pnkivs1hHXJMkrgIvDEfbR1uksxH4CnwKXkxhJ/H1sbOm4RERERERERERERERERERERERERKfjxB+A//EZNrt4HAAAAAElFTkSuQmCC'/%3E%3C/defs%3E%3C/svg%3E");
+      }
+    }
+    .slick-next{
+      flex-direction: row-reverse;
+    }
+    .slick-prev{
+      &::before{
+        transform: rotate(180deg);
+        
+      }
+    }
+  }
 }
+

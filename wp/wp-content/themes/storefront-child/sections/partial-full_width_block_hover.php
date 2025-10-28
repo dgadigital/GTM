@@ -27,7 +27,10 @@ $blocks = get_sub_field('blocks');
         $btn   = $block['button'];
       ?>
         <div class="card">
-          <div class="card-content" style="background-image: url('<?php echo esc_url($bg['url']); ?>');">
+          <div class="card-image">
+            <img src="<?php echo esc_url($bg['url']); ?>" alt="<?php echo esc_html($title); ?>">
+          </div>
+          <div class="card-content">
             <div class="content-wrap">
                 <?php if ($icon): ?>
                   <div class="icon">
