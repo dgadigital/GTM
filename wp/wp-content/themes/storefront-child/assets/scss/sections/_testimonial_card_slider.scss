@@ -1,1 +1,133 @@
-/* Styles for testimonial_card_slider section */
+@use 'abstracts/variables' as *;
+
+.testimonial-card-slider {
+    background: $gray-200;
+    padding-top: 125px;
+    padding-bottom: 95px;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2.125rem;
+    color: $dark;
+    h2{
+        margin: 0;
+    }
+  }
+
+  .testimonial-slider {
+    .testimonial-card {
+      padding: 0 15px;
+      min-height: 439px;
+
+      .card-inner {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        padding: 25px;
+        padding-bottom: 40px;
+        height: 100%;
+        min-height: 439px;
+        text-align: center;
+
+        .image-wrapper {
+          margin-bottom: 15px;
+          height: 111px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            max-height: 111px;
+            object-fit: contain;
+            margin: auto;
+            display: block;
+          }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          .excerpt {
+            color: $dark;
+            font-size: $fs-20;
+            font-style: italic;
+            font-weight: 500;
+            line-height: $lh-30;
+            text-align: left;
+            min-height: 155px;
+          }
+
+          .percentage {
+                color: $orange;
+                font-size: $fs-40;
+                font-style: normal;
+                font-weight: 700;
+                line-height: $lh-30;
+                margin-top: 20px;
+                margin-bottom: 5px;
+          }
+
+          .learn-more {
+            display: inline-block;
+            font-weight: 600;
+            position: relative;
+            color: $orange;
+            text-decoration: none;
+            font-size: $fs-20;
+            font-style: normal;
+            font-weight: 700;
+            line-height: $lh-30; /* 150% */
+
+            &::after {
+              content: "›";
+              margin-left: 5px;
+              transition: margin-left 0.2s;
+            }
+
+            &:hover::after {
+              margin-left: 8px;
+            }
+          }
+        }
+      }
+    }
+
+    // slick.js default classes styling
+    .slick-dots {
+        position: relative;
+      text-align: center;
+      margin-top: 23px;
+      margin-bottom: 34px;
+      list-style: none;
+      bottom: unset;
+
+      li {
+        display: inline-block;
+        margin: 0 6px;
+        background: $gray-200;
+          width: 17px;
+          height: 17px;
+
+        button {
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;          
+          border: none;
+          font-size: 0;
+          cursor: pointer;
+
+          &::before{
+            display: none;
+          }
+        }
+
+        &.slick-active button {
+          background: $dark; // adjust to your primary color
+        }
+      }
+    }
+  }
+
+
+}

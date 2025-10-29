@@ -8,3 +8,13 @@ main{
 body {
     background-color: $dark;
 }
+
+
+// Background color utilities
+.bg-white   { background-color: $white; }
+.bg-black   { background-color: $black; }
+.bg-dark    { background-color: $dark; }
+.bg-gray-100 { background-color: $gray-100; }
+.bg-gray-200 { background-color: $gray-200; }
+.bg-gray-300 { background-color: $gray-300; }
+.bg-gray-400 { background-color: $gray-400; }

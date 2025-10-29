@@ -46,3 +46,12 @@ h1{
     line-height: $lh-auto;
 }
 
+.section-title,
+h2,
+.fs-50
+{
+        font-size: $fs-50;
+        font-style: normal;
+        font-weight: 700;
+        line-height: $lh-60;
+}

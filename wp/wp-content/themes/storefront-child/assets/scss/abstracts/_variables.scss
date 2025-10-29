@@ -118,7 +118,7 @@ $lh-78-fluid: calc(#{$lh-78-min} + (1.125rem * ((100vw - 23.4375rem) / 101.0625r
 $lh-78: clamp($lh-78-min, $lh-78-fluid, $lh-78-max);
 
 // === lh-60 ===
-$lh-60-min: 3.125rem; // ~50px
+$lh-60-min: 2.5rem; // ~50px
 $lh-60-max: 3.75rem;  // 60px
 $lh-60-fluid: calc(#{$lh-60-min} + (0.625rem * ((100vw - 23.4375rem) / 101.0625rem)));
 $lh-60: clamp($lh-60-min, $lh-60-fluid, $lh-60-max);

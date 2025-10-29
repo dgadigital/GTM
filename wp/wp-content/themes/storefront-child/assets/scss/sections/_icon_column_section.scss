@@ -1,1 +1,130 @@
-/* Styles for icon_column_section section */
+@use 'abstracts/variables' as *;
+
+.icon-column-section {
+  padding: 80px 0;
+
+  .section-header {
+    margin-bottom: 40px;
+
+    .section-title {
+      /* inherits typography */
+          color: $dark;
+        text-align: center;
+        font-size: $fs-50;
+        font-style: normal;
+        font-weight: 700;
+        line-height: $lh-60; /* 120% */
+    }
+
+    .section-description {
+      max-width: 600px;
+      color: $dark;
+        text-align: right;
+        font-size: $fs-25;
+        font-style: normal;
+        font-weight: 400;
+        line-height: $lh-30; /* 120% */
+    }
+  }
+
+  .block-wrapper-title {
+    color: $dark;
+    font-size: $fs-40;
+    font-style: normal;
+    font-weight: 700;
+    line-height: $lh-60; /* 150% */
+    margin-bottom: 26px;
+  }
+
+  .icon-blocks {
+    row-gap: 40px;
+    column-gap: 20px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .icon-block {
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+
+    
+// Default: mobile first
+width: 100%;
+
+// Tablet: 768px–990px (2 columns)
+@media (min-width: 768px) and (max-width: 990px) {
+  width: calc(50% - 15px);
+}
+
+// Small desktop: 991px–1199px (3 columns)
+@media (min-width: 991px) and (max-width: 1199px) {
+  width: calc(33.333% - 15px);
+}
+
+// Large desktop: ≥1200px (4 columns)
+@media (min-width: 1200px) {
+  width: calc(25% - 15px);
+}
+
+
+
+    .icon-block-inner {
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+      padding: 0px;
+      transition: color 0.3s ease;
+        .icon-wrapper{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+      .icon {
+        width: 97px;
+        height: auto;
+        transition: filter 0.3s ease;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+      }
+      .block-text-wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .block-title {
+        color: $dark;
+        font-family: Inter;
+        font-size: 23px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 30px; /* 130.435% */
+        transition: color 0.3s ease;
+        text-align: left;
+        margin: 0;
+      }
+
+      .block-description {
+        color: $dark;
+        text-align: left;
+      }
+
+      &:hover {
+        .icon {
+          filter: brightness(0) saturate(100%) invert(47%) sepia(92%) saturate(2070%) hue-rotate(11deg) brightness(103%) contrast(105%);
+          /* #FF9500 */
+        }
+
+        .block-title {
+          color: $orange;
+        }
+      }
+    }
+  }
+}

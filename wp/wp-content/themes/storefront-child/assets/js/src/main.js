@@ -272,3 +272,24 @@ $('.carousel')
 
 
 // ==================================================================================================
+
+
+jQuery(document).ready(function($) {
+  $('.testimonial-slider').slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: { slidesToShow: 2 }
+      },
+      {
+        breakpoint: 767,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  });
+});

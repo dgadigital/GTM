@@ -40,12 +40,13 @@ $blocks = get_sub_field('blocks');
                 <h3><?php echo esc_html($title); ?></h3>
                 <div class="short"><?php echo esc_html($short); ?></div>
                 <div class="long"><?php echo esc_html($long); ?></div>
-                <a href="/" class="btn btn-primary">test</a>
-                <?php if ($btn): ?>
+                <div class="btn-wrapper">
+                    <?php if ($btn): ?>
                   <a href="<?php echo esc_url($btn['url']); ?>" class="btn btn-primary" <?php if ($btn['target']) echo 'target="_blank"'; ?>>
                     <?php echo esc_html($btn['title']); ?>
                   </a>
                 <?php endif; ?>
+                </div>
             </div>
           </div>
         </div>

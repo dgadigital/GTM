@@ -1,1 +1,114 @@
+@use 'abstracts/variables' as *;
+
 /* Styles for info_card_blocks section */
+.info-card-blocks {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 70px 0 40px 0;
+.info-card-content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    align-items: center;
+    justify-content: center;
+}
+  .info-card-header {
+    
+    .section-title {
+        color: $white;
+    }
+
+    .section-description {
+      color: $white;
+    }
+  }
+
+  .info-card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 45px;
+    row-gap: 50px;
+
+    .info-card {
+      position: relative;
+      flex: 1 1 calc(50% - 22.5px); // 2 columns with 45px gap total
+      aspect-ratio: 426 / 312;
+      max-width: 426px;
+      overflow: hidden;
+      border-radius: 12px;
+      background: #000;
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;      
+
+      .info-card-image {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+      }
+
+      .info-card-content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 22px 40px;
+
+        h3 {
+        
+          color: $white;
+          text-align: left;
+          margin: 0;
+        }
+
+        p {
+            color: $white;
+            font-size: $fs-20;
+            text-align: left;
+            font-style: italic;
+            font-weight: 500;
+            line-height: 30px; /* 150% */
+            margin: 0;
+        }
+      }
+    }
+  }
+
+
+  /* === Responsive === */
+  @media (max-width: 991px) {
+    .info-card-grid {
+      justify-content: center;
+      .info-card {
+        flex: 1 1 calc(50% - 22.5px);
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .info-card-grid {
+      flex-direction: column;
+      align-items: center;
+      .info-card {
+        flex: 1 1 100%;
+        width: 100%;
+      }
+    }
+  }
+}
