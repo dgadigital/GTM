@@ -24,6 +24,9 @@
         font-style: normal;
         font-weight: 400;
         line-height: $lh-30; /* 120% */
+        @media (max-width: 991px) {
+          text-align: left;
+       }
     }
   }
 

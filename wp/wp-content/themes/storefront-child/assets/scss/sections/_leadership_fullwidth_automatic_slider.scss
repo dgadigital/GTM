@@ -1,1 +1,111 @@
 /* Styles for leadership_fullwidth_automatic_slider section */
+@use 'abstracts/variables' as *;
+
+.leadership-fullwidth-automatic-slider {
+  padding: 80px 0;
+overflow: hidden;
+
+  .section-header {
+    margin-bottom: 40px;
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+
+    .section-title {
+      /* inherits typography */
+          color: $dark;
+        font-size: $fs-50;
+        font-style: normal;
+        font-weight: 700;
+        line-height: $lh-60; /* 120% */
+    }
+
+    .section-description {
+      max-width: 600px;
+      color: $dark;
+        text-align: left;
+        font-size: $fs-25;
+        font-style: normal;
+        font-weight: 400;
+        line-height: $lh-30; /* 120% */
+        @media (max-width: 991px) {
+          text-align: left;
+       }
+    }
+  }
+
+  .member-wrapper-title {
+    color: $dark;
+    font-size: $fs-40;
+    font-style: normal;
+    font-weight: 700;
+    line-height: $lh-60; /* 150% */
+    margin-bottom: 26px;
+  }
+
+  .members{
+    .member{
+        .member-inner{
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            .image-wrapper{
+                .icon{
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .member-text-wrapper{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                gap: 22px;
+                .member-text-wrapper-top{
+                    min-height: 60px;
+                    .member-name{
+                        color: $dark;
+                        font-size: $fs-23;
+                        font-weight: 700;
+                        line-height: $lh-30;
+                        margin: 0;
+                    }
+                    .member-position{
+                        color: $dark;
+                        font-size: $fs-23;
+                        font-weight: 400;
+                        line-height: $lh-30;
+                    }
+                }
+                .member-text-wrapper-bottom{
+                    .member-description{
+                        color: $dark;
+                        font-size: $fs-15;
+                        font-weight: 400;
+                        line-height: $lh-normal;
+                    }
+                }
+            }
+        }
+    }
+  }
+
+    .slick-slide {
+    margin: 0 5px; // 10px total gap
+  }
+
+  .slick-list {
+    margin: 0 -5px;
+    // padding-right: 60px; // visible peek on the right
+    overflow: visible;   // show the partial slide
+  }
+
+  .slick-track {
+    display: flex !important;
+    margin-left: 0 !important; // prevents track from centering
+  }
+
+
+
+
+}

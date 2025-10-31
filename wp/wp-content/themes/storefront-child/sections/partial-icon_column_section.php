@@ -19,7 +19,7 @@ $background_color = get_sub_field('background_color'); // e.g. 'bg-orange'
 
 <section class="section-<?php echo esc_attr($section_index); ?> icon-column-section <?php echo esc_attr($background_color); ?>">
   <div class="container">
-    <div class="section-header d-flex justify-content-between align-items-start flex-column flex-md-row">
+    <div class="section-header d-flex justify-content-between align-items-start flex-column flex-lg-row">
       <?php if (!empty($section_title)): ?>
         <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
       <?php endif; ?>

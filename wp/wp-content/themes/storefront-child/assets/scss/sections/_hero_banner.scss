@@ -27,8 +27,12 @@
     gap: 32px;    
     }
     .hero-title{
-        max-width: 741px;
+        max-width: 875px;
         margin: 0 auto;
+        @media (min-width: 992px) and (max-width: 1440px) {
+        max-width: 741px;
+        }
+
     }
     .hero-buttons {
         display: flex;
