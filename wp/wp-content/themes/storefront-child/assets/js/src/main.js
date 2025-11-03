@@ -101,33 +101,41 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 jQuery(document).ready(function($) {
-  $('.logoslider').slick({
-    slidesToShow: 6,
-    slidesToScroll: 3,
-    arrows: false,
-    dots: true,
-    autoplay: true,
-    // autoplay: false,
-    autoplaySpeed: 2000,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+  $('.logoslider').each(function() {
+    const $slider = $(this);
+    const rows = parseInt($slider.data('rows')) || 1; // default 1 row
+
+    $slider.slick({
+      slidesToShow: 6,
+      slidesToScroll: 3,
+      arrows: false,
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      infinite: true,
+      rows: rows, // 👈 dynamic rows support
+      responsive: [
+        {
+          breakpoint: 991,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            rows: rows
+          }
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            rows: 1 // usually single row on mobile
+          }
         }
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      }
-    ]
+      ]
+    });
   });
 });
+
 jQuery(document).ready(function ($) {
   $('.hover-slider').slick({
     dots: false,

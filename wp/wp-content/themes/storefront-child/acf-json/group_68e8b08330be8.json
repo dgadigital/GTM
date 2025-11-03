@@ -178,6 +178,36 @@
                             "append": ""
                         },
                         {
+                            "key": "field_69080fbe1e30e",
+                            "label": "Rows",
+                            "name": "rows",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "1": "1 Row",
+                                "2": "2 Rows",
+                                "3": "3 Rows"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
                             "key": "field_68f86a952579e",
                             "label": "Background Color",
                             "name": "background_color",
@@ -889,6 +919,35 @@
                                     "parent_repeater": "field_6901b3361d423"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_6908162d23ee3",
+                            "label": "Content Source",
+                            "name": "content_source",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "sectors": "Use Sectors (Auto)",
+                                "manual": "Manual Blocks"
+                            },
+                            "default_value": "sectors",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -1606,5 +1665,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1761886961
+    "modified": 1762137688
 }

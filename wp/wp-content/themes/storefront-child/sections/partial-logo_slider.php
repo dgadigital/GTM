@@ -16,12 +16,13 @@ if (empty($section_id)) {
 // ✅ ACF fields
 $logos            = get_sub_field('logos');
 $background_color = get_sub_field('background_color') ?: 'light';
+$rows             = get_sub_field('rows') ?: 1;
 ?>
 
 <section id="<?php echo esc_attr($section_id); ?>" class="logo-slider section-<?php echo esc_attr($section_index); ?> <?php echo ($background_color); ?>">
   <div class="container">
     <?php if ($logos): ?>
-      <div class="logoslider">
+      <div class="logoslider" data-rows="<?php echo esc_attr($rows); ?>">
         <?php foreach ($logos as $logo): 
           $logo_img = $logo['logo_image'];
         ?>
