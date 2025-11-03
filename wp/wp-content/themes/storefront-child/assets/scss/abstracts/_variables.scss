@@ -94,6 +94,13 @@ $fs-20-max: 1.25rem; // 20px
 $fs-20-fluid: calc(#{$fs-20-min} + (0.3125rem * ((100vw - 23.4375rem) / 101.0625rem)));
 $fs-20: clamp($fs-20-min, $fs-20-fluid, $fs-20-max);
 
+// === fs-17 ===
+$fs-17-min: 0.875rem; // 14px
+$fs-17-max: 1.0625rem; // 17px
+$fs-17-fluid: calc(#{$fs-17-min} + (0.1875rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-17: clamp($fs-17-min, $fs-17-fluid, $fs-17-max);
+
+
 // === fs-16 ===
 $fs-16-min: 0.9375rem; // 15px  
 $fs-16-max: 1rem; // 16px  

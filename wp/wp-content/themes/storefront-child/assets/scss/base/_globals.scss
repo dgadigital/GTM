@@ -11,10 +11,28 @@ body {
 
 
 // Background color utilities
+
+
+
 .bg-white   { background-color: $white; }
 .bg-black   { background-color: $black; }
-.bg-dark    { background-color: $dark; }
+.bg-dark    { background-color: $dark!important;}
 .bg-gray-100 { background-color: $gray-100; }
+.bg-gray-150 { background-color: $gray-150; }
 .bg-gray-200 { background-color: $gray-200; }
 .bg-gray-300 { background-color: $gray-300; }
 .bg-gray-400 { background-color: $gray-400; }
+
+// ============================================
+// Font color utilities
+// ============================================
+.text-white   { color: $white; }
+.text-black   { color: $black; }
+.text-dark    { color: $dark; }
+.text-gray-100 { color: $gray-100; }
+.text-gray-150 { color: $gray-150; }
+.text-gray-200 { color: $gray-200; }
+.text-gray-300 { color: $gray-300; }
+.text-gray-400 { color: $gray-400; }
+.text-orange   { color: $orange; }
+

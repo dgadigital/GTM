@@ -24,6 +24,27 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_69084a431daf4",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_68f724bb6c434",
                             "label": "Intro line",
                             "name": "intro_line",
@@ -145,6 +166,77 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_69084a5c1daf5",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084a801daf6",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": "text-white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -178,6 +270,103 @@
                             "append": ""
                         },
                         {
+                            "key": "field_69084cfe8ad63",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_68f86a952579e",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084d128ad64",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
                             "key": "field_69080fbe1e30e",
                             "label": "Rows",
                             "name": "rows",
@@ -195,35 +384,6 @@
                                 "1": "1 Row",
                                 "2": "2 Rows",
                                 "3": "3 Rows"
-                            },
-                            "default_value": false,
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
-                        },
-                        {
-                            "key": "field_68f86a952579e",
-                            "label": "Background Color",
-                            "name": "background_color",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "light": "Light",
-                                "dark": "Dark"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -299,7 +459,7 @@
                         {
                             "key": "field_68f8886ca1598",
                             "label": "Section Id",
-                            "name": "section_id____",
+                            "name": "section_id",
                             "aria-label": "",
                             "type": "text",
                             "instructions": "",
@@ -316,6 +476,103 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_69084811bf12a",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": "bg-dark",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084834bf12b",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_69084849bf12c",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": "text-white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_68f88885a1599",
@@ -475,6 +732,24 @@
                                     "return_format": "array",
                                     "allow_in_bindings": 0,
                                     "parent_repeater": "field_68f88885a1599"
+                                },
+                                {
+                                    "key": "field_6908549ea50df",
+                                    "label": "Page Link",
+                                    "name": "page_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_68f88885a1599"
                                 }
                             ]
                         }
@@ -489,7 +764,222 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_69084d86b978d",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_69084d98b978e",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084dcab978f",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
                             "key": "field_690052bea20bd",
+                            "label": "Section Title",
+                            "name": "section_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_690850c5cfc96": {
+                    "key": "layout_690850c5cfc96",
+                    "name": "case_study_card_slider",
+                    "label": "Case Study Card Slider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_690850c5cfc97",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_690850c5cfc98",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_690850c5cfc99",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_690850c5cfc9a",
                             "label": "Section Title",
                             "name": "section_title",
                             "aria-label": "",
@@ -539,6 +1029,77 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_69084b4ef03c2",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084b83f03c3",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_6900673f52e7e",
@@ -730,6 +1291,27 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_69084acb21bb5",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
                             "key": "field_6901b61df7dcf",
                             "label": "Background Color",
                             "name": "background_color",
@@ -752,6 +1334,42 @@
                                 "bg-gray-200": "Gray 200",
                                 "bg-gray-300": "Gray 300",
                                 "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_69084ae221bb6",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
                             },
                             "default_value": false,
                             "return_format": "value",
@@ -825,6 +1443,35 @@
                             "placeholder": "",
                             "prepend": "",
                             "append": ""
+                        },
+                        {
+                            "key": "field_6908162d23ee3",
+                            "label": "Content Source",
+                            "name": "content_source",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "sectors": "Use Sectors (Auto)",
+                                "manual": "Manual Blocks"
+                            },
+                            "default_value": "sectors",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_6901b3361d423",
@@ -919,35 +1566,6 @@
                                     "parent_repeater": "field_6901b3361d423"
                                 }
                             ]
-                        },
-                        {
-                            "key": "field_6908162d23ee3",
-                            "label": "Content Source",
-                            "name": "content_source",
-                            "aria-label": "",
-                            "type": "select",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "choices": {
-                                "sectors": "Use Sectors (Auto)",
-                                "manual": "Manual Blocks"
-                            },
-                            "default_value": "sectors",
-                            "return_format": "value",
-                            "multiple": 0,
-                            "allow_null": 0,
-                            "allow_in_bindings": 0,
-                            "ui": 0,
-                            "ajax": 0,
-                            "placeholder": "",
-                            "create_options": 0,
-                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -968,6 +1586,67 @@
                     "label": "Grid section",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_690849439ae49",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_690849799ae4a",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        },
                         {
                             "key": "field_690418799de08",
                             "label": "Section Title",
@@ -1133,8 +1812,96 @@
                                     "allow_in_bindings": 0,
                                     "preview_size": "medium",
                                     "parent_repeater": "field_690418929de0a"
+                                },
+                                {
+                                    "key": "field_69083dad22afe",
+                                    "label": "Url",
+                                    "name": "post_url",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_690418929de0a"
+                                },
+                                {
+                                    "key": "field_69083fc58cd2d",
+                                    "label": "Image Fallback",
+                                    "name": "image_fallback",
+                                    "aria-label": "",
+                                    "type": "image",
+                                    "instructions": "",
+                                    "required": 1,
+                                    "conditional_logic": [
+                                        [
+                                            {
+                                                "field": "field_690418dc9de0d",
+                                                "operator": "==empty"
+                                            }
+                                        ]
+                                    ],
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": "",
+                                    "allow_in_bindings": 0,
+                                    "preview_size": "medium",
+                                    "parent_repeater": "field_690418929de0a"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_690849929ae4b",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -1155,6 +1922,53 @@
                     "label": "Leadership fullwidth automatic slider",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_69084c28f8e18",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_69084c6d8ad62",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "aria-label": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": "",
+                            "allow_in_bindings": 0,
+                            "preview_size": "medium"
+                        },
                         {
                             "key": "field_69042c4507019",
                             "label": "Background Color",
@@ -1368,6 +2182,42 @@
                                     "parent_repeater": "field_69042c450701d"
                                 }
                             ]
+                        },
+                        {
+                            "key": "field_69084c3af8e19",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         }
                     ],
                     "min": "",
@@ -1379,6 +2229,62 @@
                     "label": "Two column section with form",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_69084eaf35649",
+                            "label": "Section ID",
+                            "name": "section_id",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_69084ec23564a",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-white": "White",
+                                "bg-black": "Black",
+                                "bg-dark": "Dark",
+                                "bg-gray-100": "Gray 100",
+                                "bg-gray-150": "Gray 150",
+                                "bg-gray-200": "Gray 200",
+                                "bg-gray-300": "Gray 300",
+                                "bg-gray-400": "Gray 400"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
                         {
                             "key": "field_690441be4b25b",
                             "label": "Background Image",
@@ -1404,6 +2310,42 @@
                             "mime_types": "",
                             "allow_in_bindings": 0,
                             "preview_size": "medium"
+                        },
+                        {
+                            "key": "field_69084ee03564b",
+                            "label": "Font color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
                         },
                         {
                             "key": "field_690441cd4b25c",
@@ -1665,5 +2607,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762137688
+    "modified": 1762154442
 }

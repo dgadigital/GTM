@@ -5,11 +5,33 @@
  * Uses CPT: testimonial
  */
 
-$section_title = get_sub_field('section_title'); // Text field from Flexible Content
-$archive_link  = get_post_type_archive_link('testimonial'); // Auto-link to CPT archive
+if (empty(get_row_layout())) return;
+
+$section_index = $args['section_index'] ?? 0;
+
+// === Section ID Logic ===
+$section_id = get_sub_field('section_id');
+if (empty($section_id)) {
+  $page_id    = get_the_ID();
+  $section_id = 'page_' . $page_id . '-section_' . $section_index;
+}
+
+// === Section Styling Fields ===
+$background_color = get_sub_field('background_color'); // e.g. bg-white, bg-dark
+$font_color       = get_sub_field('font_color');       // e.g. text-white
+
+// === Section Content ===
+$section_title = get_sub_field('section_title'); // Text
+$archive_link  = get_post_type_archive_link('testimonial');
 ?>
 
-<section class="testimonial-card-slider section-<?php echo esc_attr($args['section_index'] ?? 0); ?>">
+<section
+  id="<?php echo esc_attr($section_id); ?>"
+  class="testimonial-card-slider section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  <?php if (!empty($background_image)): ?>
+    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+  <?php endif; ?>
+>
   <div class="container">
 
     <!-- Row 1: Section Title -->
@@ -38,8 +60,7 @@ $archive_link  = get_post_type_archive_link('testimonial'); // Auto-link to CPT 
       ?>
           <div class="testimonial-card">
             <div class="card-inner text-center">
-              
-              <?php if ($image_id) : ?>
+              <?php if (!empty($image_id)) : ?>
                 <div class="image-wrapper">
                   <?php echo wp_get_attachment_image($image_id, 'medium', false, [
                     'style' => 'max-height:111px;object-fit:contain;margin:auto;display:block;',
@@ -53,7 +74,7 @@ $archive_link  = get_post_type_archive_link('testimonial'); // Auto-link to CPT 
                   <?php echo esc_html(get_the_excerpt()); ?>
                 </div>
 
-                <?php if ($percentage) : ?>
+                <?php if (!empty($percentage)) : ?>
                   <div class="percentage">
                     <?php echo esc_html($percentage); ?>
                   </div>
@@ -73,7 +94,7 @@ $archive_link  = get_post_type_archive_link('testimonial'); // Auto-link to CPT 
     </div>
 
     <!-- Row 3: Button (Auto archive link) -->
-    <?php if ($archive_link) : ?>
+    <?php if (!empty($archive_link)) : ?>
       <div class="section-button text-center mt-4">
         <a href="<?php echo esc_url($archive_link); ?>" class="btn btn-primary">
           View All Testimonials

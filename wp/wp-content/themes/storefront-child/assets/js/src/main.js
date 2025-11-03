@@ -282,13 +282,16 @@ $('.carousel')
 // ==================================================================================================
 
 
-jQuery(document).ready(function($) {
-  $('.testimonial-slider').slick({
+jQuery(document).ready(function ($) {
+  // Shared slider settings
+  const slickSettings = {
     dots: true,
     arrows: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     adaptiveHeight: true,
+    infinite: true,
+    autoplay: false,
     responsive: [
       {
         breakpoint: 991,
@@ -299,8 +302,19 @@ jQuery(document).ready(function($) {
         settings: { slidesToShow: 1 }
       }
     ]
-  });
+  };
+
+  // Initialize Testimonial Slider
+  if ($('.testimonial-slider').length && !$('.testimonial-slider').hasClass('slick-initialized')) {
+    $('.testimonial-slider').slick(slickSettings);
+  }
+
+  // Initialize Case Study Slider
+  if ($('.case-study-slider').length && !$('.case-study-slider').hasClass('slick-initialized')) {
+    $('.case-study-slider').slick(slickSettings);
+  }
 });
+
 
 document.querySelectorAll('.grid-section .item').forEach(item => {
   const video = item.querySelector('.bg-video');
@@ -323,14 +337,14 @@ jQuery(document).ready(function ($) {
     $leadershipSlider.slick({
       slidesToShow: 5.35,           // 5 full + right-side peek
       slidesToScroll: 1,
-      infinite: false,              // ✅ infinite loop stays on
-      autoplay: false,
+      infinite: true,              // ✅ infinite loop stays on
+      autoplay: true,
       autoplaySpeed: 3000,
       speed: 600,
       cssEase: 'ease',
       arrows: false,
       dots: false,
-      pauseOnHover: false,
+      pauseOnHover: true,
       centerMode: false,           // ❗ disable centering
       variableWidth: false,        // keep equal widths
       responsive: [

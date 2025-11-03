@@ -6,17 +6,31 @@
  */
 
 $section_index = $args['section_index'] ?? 0;
-$section_id    = get_sub_field('section_id');
+
+// === Section ID Logic ===
+$section_id = get_sub_field('section_id');
 if (empty($section_id)) {
   $page_id    = get_the_ID();
-  $section_id = 'page_' . $page_id . '-section_' . $section_index;
+  $section_id = 'page_' . $page_id . '-section' . $section_index;
 }
 
+// === Section Styling Fields ===
+$background_color = get_sub_field('background_color'); // Select (e.g. bg-white, bg-dark)
+$background_image = get_sub_field('background_image'); // Image (optional override)
+$font_color       = get_sub_field('font_color');       // Select (e.g. text-dark, text-light)
+
+// === Section Content ===
 $blocks = get_sub_field('blocks');
 ?>
 
-<?php if ($blocks): ?>
-  <section id="<?php echo esc_attr($section_id); ?>" class="fullwidth-block-hover section-<?php echo esc_attr($section_index); ?>">
+<?php if (!empty($blocks)): ?>
+  <section
+    id="<?php echo esc_attr($section_id); ?>"
+    class="fullwidth-block-hover section-<?php echo esc_attr($section_index); ?> <?php echo ($background_color . ' ' . $font_color); ?>"
+    <?php if (!empty($background_image)): ?>
+      style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    <?php endif; ?>
+  >
     <div class="carousel"><!-- no Bootstrap row/cols -->
       <?php foreach ($blocks as $block): 
         $bg    = $block['background_image'];
@@ -25,31 +39,47 @@ $blocks = get_sub_field('blocks');
         $short = $block['short_text'];
         $long  = $block['long_text'];
         $btn   = $block['button'];
+        $page_link   = $block['page_link']?$block['page_link']['url']:'';
+        
       ?>
-        <div class="card">
+        <a href="<?= $page_link?>" class="card">
+          
           <div class="card-image">
-            <img src="<?php echo esc_url($bg['url']); ?>" alt="<?php echo esc_html($title); ?>">
+            <?php if (!empty($bg)): ?>
+              <img src="<?php echo esc_url($bg['url']); ?>" alt="<?php echo esc_attr($title); ?>">
+            <?php endif; ?>
           </div>
+
           <div class="card-content">
             <div class="content-wrap">
-                <?php if ($icon): ?>
-                  <div class="icon">
-                    <?php echo wp_get_attachment_image($icon['ID'], 'thumbnail'); ?>
-                  </div>
-                <?php endif; ?>
-                <h3><?php echo esc_html($title); ?></h3>
-                <div class="short"><?php echo esc_html($short); ?></div>
+              <?php if (!empty($icon)): ?>
+                <div class="icon">
+                  <?php echo wp_get_attachment_image($icon['ID'], 'thumbnail', false, ['alt' => esc_attr($title)]); ?>
+                </div>
+              <?php endif; ?>
+
+              <?php if (!empty($title)): ?>
+                <h3 class="section-title"><?php echo esc_html($title); ?></h3>
+              <?php endif; ?>
+
+              <?php if (!empty($short)): ?>
+                <div class="short section-description"><?php echo esc_html($short); ?></div>
+              <?php endif; ?>
+
+              <?php if (!empty($long)): ?>
                 <div class="long"><?php echo esc_html($long); ?></div>
-                <div class="btn-wrapper">
-                    <?php if ($btn): ?>
-                  <a href="<?php echo esc_url($btn['url']); ?>" class="btn btn-primary" <?php if ($btn['target']) echo 'target="_blank"'; ?>>
+              <?php endif; ?>
+
+              <?php if (!empty($btn)): ?>
+                <div class="btn-wrapper <?= $font_color?>">
+                  <a href="<?php echo esc_url($btn['url']); ?>" class="btn btn-primary" <?php if (!empty($btn['target'])) echo 'target="_blank"'; ?>>
                     <?php echo esc_html($btn['title']); ?>
                   </a>
-                <?php endif; ?>
                 </div>
+              <?php endif; ?>
             </div>
           </div>
-        </div>
+        </a>
       <?php endforeach; ?>
     </div><!-- /.carousel -->
   </section>

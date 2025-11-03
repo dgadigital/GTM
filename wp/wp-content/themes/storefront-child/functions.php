@@ -272,3 +272,5 @@ function dga_disable_editor_for_flexible_template() {
         echo '<style>#postdivrich, #post-body-content { display:none !important; }</style>';
     });
 }
+
+

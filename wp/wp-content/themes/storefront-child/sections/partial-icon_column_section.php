@@ -3,16 +3,27 @@ if (empty(get_row_layout())) return;
 
 $section_index = $args['section_index'] ?? 0;
 
+// === Section ID Logic ===
+$section_id = get_sub_field('section_id');
+if (empty($section_id)) {
+  $page_id    = get_the_ID();
+  $section_id = 'page_' . $page_id . '-section_' . $section_index;
+}
+
 // === ACF Fields ===
 $section_title        = get_sub_field('section_title');        // Text
-$section_description  = get_sub_field('section_description');  // Textarea
+$section_description  = get_sub_field('section_description');  // WYSIWYG
 $block_wrapper_title  = get_sub_field('block_wrapper_title');  // Text
-$background_color     = get_sub_field('background_color');     // Select (e.g. bg-orange)
+$background_color     = get_sub_field('background_color');     // Select (bg-*)
+$font_color           = get_sub_field('font_color');           // Select (text-*)
 $blocks               = get_sub_field('blocks');               // Repeater
-$content_source       = get_sub_field('content_source') ?: 'sectors'; // Select (default sectors)
+$content_source       = get_sub_field('content_source') ?: 'sectors'; // Select (default)
 ?>
 
-<section class="section-<?php echo esc_attr($section_index); ?> icon-column-section <?php echo esc_attr($background_color); ?>">
+<section
+  id="<?php echo esc_attr($section_id); ?>"
+  class="icon-column-section section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+>
   <div class="container">
     <div class="section-header d-flex justify-content-between align-items-start flex-column flex-lg-row">
       <?php if (!empty($section_title)): ?>
@@ -30,13 +41,11 @@ $content_source       = get_sub_field('content_source') ?: 'sectors'; // Select 
       <h3 class="block-wrapper-title"><?php echo esc_html($block_wrapper_title); ?></h3>
     <?php endif; ?>
 
-
     <?php
     // ==========================================================
-    // OPTION 1 → Auto pull from CPT "sectors"
+    // OPTION 1 → Auto pull from CPT "sector"
     // OPTION 2 → Manual Repeater fallback
     // ==========================================================
-
     if ($content_source === 'sectors') :
 
       $sectors = new WP_Query([
@@ -56,7 +65,6 @@ $content_source       = get_sub_field('content_source') ?: 'sectors'; // Select 
             $sector_desc  = get_field('sector_description') ?: get_the_excerpt();
           ?>
             <a href="<?php echo esc_url(get_permalink()); ?>" class="icon-block">
-            
               <div class="icon-block-inner">
                 <?php if (!empty($sector_icon)): ?>
                   <div class="icon-wrapper">
@@ -76,16 +84,11 @@ $content_source       = get_sub_field('content_source') ?: 'sectors'; // Select 
         </div>
       <?php endif; ?>
 
-    <?php
-    // ==========================================================
-    // OPTION 2 → Manual Repeater (forced)
-    // ==========================================================
-    elseif ($content_source === 'manual' && !empty($blocks)) :
-    ?>
+    <?php elseif ($content_source === 'manual' && !empty($blocks)) : ?>
       <div class="row icon-blocks">
         <?php foreach ($blocks as $block):
-          $icon             = $block['icon']['url'] ?? '';
-          $block_title      = $block['block_title'] ?? '';
+          $icon              = $block['icon']['url'] ?? '';
+          $block_title       = $block['block_title'] ?? '';
           $block_description = $block['block_description'] ?? '';
         ?>
           <div class="icon-block">

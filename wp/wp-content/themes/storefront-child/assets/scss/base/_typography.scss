@@ -55,3 +55,17 @@ h2,
         font-weight: 700;
         line-height: $lh-60;
 }
+
+h3{
+font-size: $fs-30;
+font-style: normal;
+font-weight: 700;
+line-height: $lh-60; /* 200% */
+}
+
+h4{
+font-size: $fs-20;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
