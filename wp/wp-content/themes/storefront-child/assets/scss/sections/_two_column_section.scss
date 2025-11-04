@@ -17,7 +17,7 @@
                 // font-weight: 700;
                 line-height: $lh-60; /* 120% */
             }
-            .description{
+            .section-description{
                 color: $white;
                 text-align: center;
                 font-size: $fs-20;
@@ -31,8 +31,9 @@
 
   .content-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    margin-top: 47px;
     gap: 40px;
 
     @media (max-width: 991px) {

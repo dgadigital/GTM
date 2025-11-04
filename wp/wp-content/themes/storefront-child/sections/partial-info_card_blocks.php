@@ -30,10 +30,10 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="info-card-blocks section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="info-card-blocks section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container info-card-content-wrapper">
@@ -41,11 +41,11 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
     <?php if (!empty($title) || !empty($description)): ?>
       <div class="info-card-header">
         <?php if (!empty($title)): ?>
-          <h2 class="section-title"><?php echo ($title); ?></h2>
+          <h2 class="section-title <?= $font_color?>"><?= ($title); ?></h2>
         <?php endif; ?>
 
         <?php if (!empty($description)): ?>
-          <div class="section-description"><?php echo wp_kses_post($description); ?></div>
+          <div class="section-description <?= $font_color?>"><?= wp_kses_post($description); ?></div>
         <?php endif; ?>
       </div>
     <?php endif; ?>
@@ -60,16 +60,16 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
           <div class="info-card">
             <?php if (!empty($image)): ?>
               <div class="info-card-image">
-                <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($heading); ?>">
+                <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>">
               </div>
             <?php endif; ?>
 
             <div class="info-card-content">
               <?php if (!empty($heading)): ?>
-                <h3 class="fs-50"><?php echo ($heading); ?></h3>
+                <h3 class="fs-50"><?= ($heading); ?></h3>
               <?php endif; ?>
               <?php if (!empty($text)): ?>
-                <p><?php echo ($text); ?></p>
+                <p><?= ($text); ?></p>
               <?php endif; ?>
             </div>
           </div>
@@ -83,8 +83,8 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
       $btn_target = $button['target'] ?? '_self';
     ?>
       <div class="info-card-button">
-        <a href="<?php echo esc_url($btn_url); ?>" class="btn btn-tertiary" target="<?php echo esc_attr($btn_target); ?>">
-          <?php echo ($btn_title); ?>
+        <a href="<?= esc_url($btn_url); ?>" class="btn btn-tertiary" target="<?= esc_attr($btn_target); ?>">
+          <?= ($btn_title); ?>
         </a>
       </div>
     <?php endif; ?>

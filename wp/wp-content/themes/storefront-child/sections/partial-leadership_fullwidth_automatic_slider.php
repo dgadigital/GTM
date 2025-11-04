@@ -22,27 +22,27 @@ $members              = get_sub_field('members');           // Repeater
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="leadership-fullwidth-automatic-slider section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="leadership-fullwidth-automatic-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container">
     <div class="section-header d-flex justify-content-between align-items-start flex-column flex-lg-row">
       <?php if (!empty($section_title)): ?>
-        <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
+        <h2 class="section-title <?= $font_color?>"><?= esc_html($section_title); ?></h2>
       <?php endif; ?>
 
       <?php if (!empty($section_description)): ?>
-        <div class="section-description">
-          <?php echo wp_kses_post($section_description); ?>
+        <div class="section-description <?= $font_color?>">
+          <?= wp_kses_post($section_description); ?>
         </div>
       <?php endif; ?>
     </div>
 
     <?php if (!empty($member_wrapper_title)): ?>
-      <h3 class="member-wrapper-title"><?php echo esc_html($member_wrapper_title); ?></h3>
+      <h3 class="member-wrapper-title <?= $font_color?>"><?= esc_html($member_wrapper_title); ?></h3>
     <?php endif; ?>
   </div>
 
@@ -58,7 +58,7 @@ $members              = get_sub_field('members');           // Repeater
           <div class="member-inner">
             <?php if (!empty($member_img)): ?>
               <div class="image-wrapper">
-                <?php echo wp_get_attachment_image($member_img['ID'], 'full', false, [
+                <?= wp_get_attachment_image($member_img['ID'], 'full', false, [
                   'class' => 'icon',
                   'alt'   => esc_attr($member_name ?: 'Member')
                 ]); ?>
@@ -68,17 +68,17 @@ $members              = get_sub_field('members');           // Repeater
             <div class="member-text-wrapper">
               <div class="member-text-wrapper-top">
                 <?php if (!empty($member_name)): ?>
-                  <h4 class="member-name"><?php echo esc_html($member_name); ?></h4>
+                  <h4 class="member-name"><?= esc_html($member_name); ?></h4>
                 <?php endif; ?>
 
                 <?php if (!empty($member_position)): ?>
-                  <div class="member-position"><?php echo esc_html($member_position); ?></div>
+                  <div class="member-position"><?= esc_html($member_position); ?></div>
                 <?php endif; ?>
               </div>
 
               <?php if (!empty($member_description)): ?>
                 <div class="member-text-wrapper-bottom">
-                  <div class="member-description"><?php echo wp_kses_post($member_description); ?></div>
+                  <div class="member-description"><?= wp_kses_post($member_description); ?></div>
                 </div>
               <?php endif; ?>
             </div>

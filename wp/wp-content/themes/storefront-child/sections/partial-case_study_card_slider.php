@@ -18,6 +18,7 @@ if (empty($section_id)) {
 
 // === Section Styling Fields ===
 $background_color = get_sub_field('background_color'); // e.g. bg-white, bg-dark
+$background_image = get_sub_field('background_image'); // e.g. bg-white, bg-dark
 $font_color       = get_sub_field('font_color');       // e.g. text-white
 
 // === Section Content ===
@@ -26,18 +27,18 @@ $archive_link  = get_post_type_archive_link('case-study'); // ✅ changed CPT
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="case-study-card-slider section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="case-study-card-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container">
 
 
     <?php if (!empty($section_title)) : ?>
-      <div class="section-title text-center">
-        <h2><?php echo esc_html($section_title); ?></h2>
+      <div class="section-title text-center <?= $font_color?>">
+        <h2><?= esc_html($section_title); ?></h2>
       </div>
     <?php endif; ?>
 <?php
@@ -78,7 +79,7 @@ if ($video && !empty($video['url'])):
 ?>
   <div class="video-wrapper">
     <video controls <?php if ($poster) echo 'poster="' . esc_url($poster) . '"'; ?>>
-      <source src="<?php echo esc_url($video_url); ?>" type="video/mp4">
+      <source src="<?= esc_url($video_url); ?>" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -96,27 +97,27 @@ if ($video && !empty($video['url'])):
   </div>
 <?php endif; ?>
           <?php if ($title = get_field('title')): ?>
-            <h3 class="brand-title"><?php echo esc_html($title); ?></h3>
+            <h3 class="brand-title"><?= esc_html($title); ?></h3>
           <?php endif; ?>
 
           <?php if ($challenge = get_field('challenge')): ?>
             <div class="challenge mb-3">
               <h4>Challenge:</h4>
-              <?php echo wp_kses_post($challenge); ?>
+              <?= wp_kses_post($challenge); ?>
             </div>
           <?php endif; ?>
 
           <?php if ($play = get_field('play')): ?>
             <div class="play mb-3">
               <h4>Play:</h4>
-              <?php echo wp_kses_post($play); ?>
+              <?= wp_kses_post($play); ?>
             </div>
           <?php endif; ?>
 
           <?php if ($roi = get_field('roi')): ?>
             <div class="roi mb-3">
               <h4>ROI:</h4>
-              <?php echo wp_kses_post($roi); ?>
+              <?= wp_kses_post($roi); ?>
             </div>
           <?php endif; ?>
 
@@ -124,21 +125,21 @@ if ($video && !empty($video['url'])):
           <div class="stats d-flex flex-wrap mt-3">
             <?php if ($return = get_field('return_of_investment')): ?>
               <div class="stat-item">
-                <span class="value"><?php echo esc_html($return); ?></span>
+                <span class="value"><?= esc_html($return); ?></span>
                 <span class="label">Return of Investment</span>
               </div>
             <?php endif; ?>
 
             <?php if ($media = get_field('media_mentions')): ?>
               <div class="stat-item">
-                <span class="value"><?php echo esc_html($media); ?></span>
+                <span class="value"><?= esc_html($media); ?></span>
                 <span class="label">Media Mentions</span>
               </div>
             <?php endif; ?>
 
             <?php if ($crisis = get_field('crisis_response_rate')): ?>
               <div class="stat-item">
-                <span class="value"><?php echo esc_html($crisis); ?></span>
+                <span class="value"><?= esc_html($crisis); ?></span>
                 <span class="label">Crisis Response Rate</span>
               </div>
             <?php endif; ?>
@@ -153,8 +154,9 @@ if ($video && !empty($video['url'])):
 
 
 
-    <div class="container">
-      <h2 class="text-center">View Other Case Studies</h2>
+    
+      <h2 class="text-center slider-title">View Other Case Studies</h2>
+    
     </div>
     <div class="case-study-slider">
       <?php
@@ -170,13 +172,14 @@ if ($video && !empty($video['url'])):
 
           $image_id   = get_post_thumbnail_id();
           $excerpt    = get_the_excerpt();
+          $percentage = get_field('percentage');
           $permalink  = get_permalink();
       ?>
           <div class="case-study-card">
             <div class="card-inner text-center">
               <?php if (!empty($image_id)) : ?>
                 <div class="image-wrapper">
-                  <?php echo wp_get_attachment_image($image_id, 'medium', false, [
+                  <?= wp_get_attachment_image($image_id, 'medium', false, [
                     'style' => 'max-height:180px;object-fit:cover;margin:auto;display:block;border-radius:8px;',
                     'alt'   => esc_attr(get_the_title()),
                   ]); ?>
@@ -184,13 +187,21 @@ if ($video && !empty($video['url'])):
               <?php endif; ?>
 
               <div class="content">
-                <h3 class="case-study-title"><?php echo esc_html(get_the_title()); ?></h3>
+                <!-- <h3 class="case-study-title"> -->
+                  <?php // echo esc_html(get_the_title()); ?>
+                <!-- </h3> -->
 
                 <?php if (!empty($excerpt)) : ?>
-                  <div class="excerpt"><?php echo esc_html($excerpt); ?></div>
+                  <div class="excerpt"><?= esc_html($excerpt); ?></div>
                 <?php endif; ?>
 
-                <a href="<?php echo esc_url($permalink); ?>" class="learn-more">
+                <?php if (!empty($percentage)) : ?>
+                  <div class="percentage">
+                    <?= esc_html($percentage); ?>
+                  </div>
+                <?php endif; ?>
+
+                <a href="<?= esc_url($permalink); ?>" class="learn-more">
                   Read More
                 </a>
               </div>
@@ -203,14 +214,15 @@ if ($video && !empty($video['url'])):
       ?>
     </div>
 
-    <!-- Row 3: Button (Auto archive link) -->
+    <div class="container">
     <?php if (!empty($archive_link)) : ?>
       <div class="section-button text-center mt-4">
-        <a href="<?php echo esc_url($archive_link); ?>" class="btn btn-primary">
+        <a href="<?= esc_url($archive_link); ?>" class="btn btn-primary">
           View All Case Studies
         </a>
       </div>
     <?php endif; ?>
 
+  </div>
   </div>
 </section>

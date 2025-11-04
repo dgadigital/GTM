@@ -287,12 +287,20 @@ jQuery(document).ready(function ($) {
   const slickSettings = {
     dots: true,
     arrows: false,
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     adaptiveHeight: true,
     infinite: true,
     autoplay: false,
     responsive: [
+      {
+        breakpoint: 1367,
+        settings: { slidesToShow: 4 }
+      },
+      {
+        breakpoint: 1221,
+        settings: { slidesToShow: 3 }
+      },
       {
         breakpoint: 991,
         settings: { slidesToShow: 2 }

@@ -1,0 +1,28 @@
+@use 'abstracts/variables' as *;
+
+#wpcf7-f6-o1 p, #wpcf7-f6-o1 p .wpcf7-submit{
+    margin: 0;
+}
+
+#wpcf7-f6-o1 .wpcf7-spinner{
+  display: none;  
+}
+
+textarea.dr-form{
+height: 114px;
+}
+
+.dr-form{
+    padding: 23px;
+    margin-bottom: 10px;
+}
+
+.dr-form::placeholder {
+  color: #919191;
+  text-align: left;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+

@@ -49,3 +49,86 @@
   }
 }
 
+
+/* ===========================================
+   Slick Dots Adaptive Styles by Section BG
+   =========================================== */
+    .slick-dots {
+      position: relative;
+      text-align: center;
+      margin-top: 23px;
+      margin-bottom: 34px;
+      list-style: none;
+      bottom: unset;
+
+      li {
+        display: inline-block;
+        margin: 0 6px;
+        width: 17px;
+        height: 17px;
+
+        button {
+          width: 11px;
+          height: 11px;
+          border-radius: 50%;
+          border: 3px solid;
+          font-size: 0;
+          cursor: pointer;
+
+          &::before {
+            display: none;
+          }
+        }
+
+
+      }
+    }
+
+
+/* === Dark background section === */
+.bg-dark {
+  .slick-dots li button {
+    background-color: $gray-200;
+  }
+
+  .slick-dots li.slick-active button {
+    background-color: $dark; // same as section bg
+    border-color: $gray-200;
+  }
+}
+
+/* === Gray-150 (#E6E7E8) background section === */
+.bg-gray-150 {
+  .slick-dots li button {
+    background-color: $gray-200; // lighter gray dot
+  }
+
+  .slick-dots li.slick-active button {
+    background-color: $dark; // #231F20
+    border: 3px solid $gray-200;
+  }
+}
+
+/* === Gray-100 background section === */
+.bg-gray-100 {
+  .slick-dots li button {
+    background-color: $gray-200;
+  }
+
+  .slick-dots li.slick-active button {
+    background-color: $dark;
+    border-color: $gray-200;
+  }
+}
+
+/* === White background section (for contrast) === */
+.bg-white {
+  .slick-dots li button {
+    background-color: $gray-200;
+  }
+
+  .slick-dots li.slick-active button {
+    background-color: $dark;
+    border-color: $gray-200;
+  }
+}

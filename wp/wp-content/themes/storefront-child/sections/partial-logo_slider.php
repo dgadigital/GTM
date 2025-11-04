@@ -24,21 +24,21 @@ $font_color        = get_sub_field('font_color');       // e.g. text-white
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="logo-slider section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="logo-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container">
     <?php if (!empty($logos)): ?>
-      <div class="logoslider" data-rows="<?php echo esc_attr($rows); ?>">
+      <div class="logoslider" data-rows="<?= esc_attr($rows); ?>">
         <?php foreach ($logos as $logo):
           $logo_img = $logo['logo_image'];
           if (empty($logo_img)) continue;
         ?>
           <div class="logo-slide">
-            <?php echo wp_get_attachment_image($logo_img['ID'], 'medium', false, [
+            <?= wp_get_attachment_image($logo_img['ID'], 'medium', false, [
               'alt' => esc_attr(get_post_meta($logo_img['ID'], '_wp_attachment_image_alt', true) ?: 'Logo')
             ]); ?>
           </div>

@@ -26,18 +26,18 @@ $archive_link  = get_post_type_archive_link('testimonial');
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="testimonial-card-slider section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="testimonial-card-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container">
 
     <!-- Row 1: Section Title -->
     <?php if (!empty($section_title)) : ?>
-      <div class="section-title text-center">
-        <h2><?php echo esc_html($section_title); ?></h2>
+      <div class="section-title text-center <?= $font_color?>">
+        <h2><?= esc_html($section_title); ?></h2>
       </div>
     <?php endif; ?>
 
@@ -62,7 +62,7 @@ $archive_link  = get_post_type_archive_link('testimonial');
             <div class="card-inner text-center">
               <?php if (!empty($image_id)) : ?>
                 <div class="image-wrapper">
-                  <?php echo wp_get_attachment_image($image_id, 'medium', false, [
+                  <?= wp_get_attachment_image($image_id, 'medium', false, [
                     'style' => 'max-height:111px;object-fit:contain;margin:auto;display:block;',
                     'alt'   => esc_attr(get_the_title()),
                   ]); ?>
@@ -71,16 +71,16 @@ $archive_link  = get_post_type_archive_link('testimonial');
 
               <div class="content">
                 <div class="excerpt">
-                  <?php echo esc_html(get_the_excerpt()); ?>
+                  <?= esc_html(get_the_excerpt()); ?>
                 </div>
 
                 <?php if (!empty($percentage)) : ?>
                   <div class="percentage">
-                    <?php echo esc_html($percentage); ?>
+                    <?= esc_html($percentage); ?>
                   </div>
                 <?php endif; ?>
 
-                <a href="<?php echo esc_url($permalink); ?>" class="learn-more">
+                <a href="<?= esc_url($permalink); ?>" class="learn-more">
                   Learn more
                 </a>
               </div>
@@ -96,7 +96,7 @@ $archive_link  = get_post_type_archive_link('testimonial');
     <!-- Row 3: Button (Auto archive link) -->
     <?php if (!empty($archive_link)) : ?>
       <div class="section-button text-center mt-4">
-        <a href="<?php echo esc_url($archive_link); ?>" class="btn btn-primary">
+        <a href="<?= esc_url($archive_link); ?>" class="btn btn-primary">
           View All Testimonials
         </a>
       </div>

@@ -30,40 +30,40 @@ if (empty($headline) && empty($background_image)) return;
 ?>
 
 <section
-  id="<?php echo esc_attr($section_id); ?>"
-  class="hero-banner section-<?php echo esc_attr($section_index); ?> <?php echo esc_attr($background_color . ' ' . $font_color); ?>"
+  id="<?= esc_attr($section_id); ?>"
+  class="hero-banner section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
-    style="background-image:url('<?php echo esc_url($background_image['url']); ?>');"
+    style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
   <div class="container hero-content">
     <?php if (!empty($intro_line)): ?>
-      <span class="hero-intro"><?php echo esc_html($intro_line); ?></span>
+      <span class="hero-intro"><?= esc_html($intro_line); ?></span>
     <?php endif; ?>
 
     <div class="hero-content-center">
       <?php if (!empty($headline)): ?>
-        <h1 class="hero-title"><?php echo wp_kses_post($headline); ?></h1>
+        <h1 class="hero-title"><?= wp_kses_post($headline); ?></h1>
       <?php endif; ?>
 
       <?php if (!empty($tagline)): ?>
-        <div class="hero-tagline"><?php echo esc_html($tagline); ?></div>
+        <div class="hero-tagline"><?= esc_html($tagline); ?></div>
       <?php endif; ?>
 
       <div class="hero-buttons">
         <?php if (!empty($primary_button['url'])): ?>
-          <a href="<?php echo esc_url($primary_button['url']); ?>"
+          <a href="<?= esc_url($primary_button['url']); ?>"
              class="btn btn-primary"
              <?php if (!empty($primary_button['target'])) echo 'target="' . esc_attr($primary_button['target']) . '"'; ?>>
-             <?php echo esc_html($primary_button['title']); ?>
+             <?= esc_html($primary_button['title']); ?>
           </a>
         <?php endif; ?>
 
         <?php if (!empty($secondary_button['url'])): ?>
-          <a href="<?php echo esc_url($secondary_button['url']); ?>"
+          <a href="<?= esc_url($secondary_button['url']); ?>"
              class="btn btn-secondary"
              <?php if (!empty($secondary_button['target'])) echo 'target="' . esc_attr($secondary_button['target']) . '"'; ?>>
-             <?php echo esc_html($secondary_button['title']); ?>
+             <?= esc_html($secondary_button['title']); ?>
           </a>
         <?php endif; ?>
       </div>
