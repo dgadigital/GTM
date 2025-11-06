@@ -76,7 +76,7 @@
         </div>
 
         <div class="osoac-logo-wrapper">
-            <img src="/wp-content/uploads/2025/10/image-9.png" alt="Official supporter of Australian creators logo">
+            <img src="/wp-content/uploads/2025/11/official-supporter-of-australian-creators.png" alt="Official supporter of Australian creators logo">
         </div>
     </div>
 </div>

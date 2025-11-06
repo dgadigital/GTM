@@ -260,22 +260,29 @@ function moveSlickArrows(e, slick) {
 }
 
 // Attach BEFORE init
-$('.carousel')
-  .on('init reInit breakpoint setPosition', applySlickInner)
-  .on('init reInit breakpoint setPosition', moveSlickArrows)
-  .slick({
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    rows: 2,
-    prevArrow:
-      '<button type="button" class="slick-prev">swipe left to navigate</button>',
-    nextArrow:
-      '<button type="button" class="slick-next">swipe right to navigate</button>',
-    responsive: [
-      { breakpoint: 992, settings: { slidesToShow: 2 } },
-      { breakpoint: 776, settings: { slidesToShow: 1, rows: 1 } }
-    ]
+jQuery(document).ready(function ($) {
+  $('.carousel').each(function () {
+    const $carousel = $(this);
+    const rows = parseInt($carousel.data('rows')) || 2; // 👈 pull from PHP
+
+    $carousel.on('init reInit breakpoint setPosition', applySlickInner)
+      .on('init reInit breakpoint setPosition', moveSlickArrows)
+      .slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        rows: rows, // 👈 dynamic rows
+        prevArrow:
+          '<button type="button" class="slick-prev">swipe left to navigate</button>',
+        nextArrow:
+          '<button type="button" class="slick-next">swipe right to navigate</button>',
+        responsive: [
+          { breakpoint: 992, settings: { slidesToShow: 2 } },
+          { breakpoint: 776, settings: { slidesToShow: 1, rows: 1 } }
+        ]
+      });
   });
+});
+
 
 
 
@@ -294,7 +301,7 @@ jQuery(document).ready(function ($) {
     autoplay: false,
     responsive: [
       {
-        breakpoint: 1367,
+        breakpoint: 1537,
         settings: { slidesToShow: 4 }
       },
       {

@@ -56,8 +56,10 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
           $image   = $block['image']['url'] ?? '';
           $heading = $block['heading'] ?? '';
           $text    = $block['text'] ?? '';
+          $block_link = $block['block_link']['url'] ?? '';
+
         ?>
-          <div class="info-card">
+          <<?= $block_link ? 'a' : 'div'; ?> <?= $block_link ? 'href="' . esc_url($block_link) . '"' : ''; ?>  class="info-card" >
             <?php if (!empty($image)): ?>
               <div class="info-card-image">
                 <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>">
@@ -72,7 +74,7 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
                 <p><?= ($text); ?></p>
               <?php endif; ?>
             </div>
-          </div>
+          </<?= $block_link ? 'a' : 'div'; ?>>
         <?php endforeach; ?>
       </div>
     <?php endif; ?>

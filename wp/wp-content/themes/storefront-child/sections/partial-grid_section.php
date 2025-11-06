@@ -120,6 +120,6 @@ if ($testimonial_query->have_posts()): ?>
 
 
   <div class="container btn-wrapper">
-    <a href="/" class="btn btn-primary">View All Case Studies</a>
+    <a href="/" class="btn btn-primary">View All Testimonial</a>
   </div>
 </section>

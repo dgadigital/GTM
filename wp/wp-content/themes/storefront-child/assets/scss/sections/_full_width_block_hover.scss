@@ -4,7 +4,17 @@
 .fullwidth-block-hover {
   display: flex;
   flex-direction: column;
-  
+  &.section-padding{
+    padding-top: 60px;
+  }  
+  .container{
+   .section-title{
+    margin: 0;
+   } 
+   .section-description{
+    margin-bottom: 10px;
+   }
+  }
   .carousel {
     &.slick-initialized {
       .slick-list {

@@ -8,13 +8,17 @@
   display: none;  
 }
 
+.wpcf7 .wpcf7-submit{
+  font-size: $fs-15!important;
+}
+
 textarea.dr-form{
 height: 114px;
 }
 
 .dr-form{
-    padding: 23px;
-    margin-bottom: 10px;
+    padding: 12px 23px!important;
+    margin-bottom: 10px!important;
 }
 
 .dr-form::placeholder {

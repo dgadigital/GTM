@@ -904,13 +904,17 @@ footer .bottom-row .bottom-row-wrapper .osoac-logo-wrapper {
   display: none;
 }
 
+.wpcf7 .wpcf7-submit {
+  font-size: clamp(0.6875rem, 0.6875rem + 0.25rem * (100vw - 23.4375rem) / 101.0625rem, 0.9375rem) !important;
+}
+
 textarea.dr-form {
   height: 114px;
 }
 
 .dr-form {
-  padding: 23px;
-  margin-bottom: 10px;
+  padding: 12px 23px !important;
+  margin-bottom: 10px !important;
 }
 
 .dr-form::-webkit-input-placeholder {
@@ -972,6 +976,15 @@ textarea.dr-form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+.fullwidth-block-hover.section-padding {
+  padding-top: 60px;
+}
+.fullwidth-block-hover .container .section-title {
+  margin: 0;
+}
+.fullwidth-block-hover .container .section-description {
+  margin-bottom: 10px;
 }
 .fullwidth-block-hover .carousel.slick-initialized .slick-list .slick-track .slick-slide .slick-inner {
   position: relative;
@@ -1226,6 +1239,7 @@ textarea.dr-form {
   cursor: pointer;
   /* video layer */
 }
+.grid-section .item .bg-video img,
 .grid-section .item .bg-video {
   position: absolute;
   inset: 0;
@@ -1256,7 +1270,7 @@ textarea.dr-form {
       -ms-flex-align: center;
           align-items: center;
   padding-bottom: 30px;
-  background: rgba(35, 31, 32, 0.2);
+  background: rgba(35, 31, 32, 0.8);
   -webkit-transition: opacity 0.4s ease;
   transition: opacity 0.4s ease;
   z-index: 3;
@@ -1616,6 +1630,7 @@ textarea.dr-form {
   transition: -webkit-transform 0.3s ease;
   transition: transform 0.3s ease;
   transition: transform 0.3s ease, -webkit-transform 0.3s ease;
+  text-decoration: none;
 }
 .info-card-blocks .info-card-grid .info-card .info-card-image {
   position: absolute;
@@ -1658,7 +1673,7 @@ textarea.dr-form {
   color: #ffffff;
   font-size: clamp(0.9375rem, 0.9375rem + 0.3125rem * (100vw - 23.4375rem) / 101.0625rem, 1.25rem);
   text-align: left;
-  font-style: italic;
+  font-style: normal;
   font-weight: 500;
   line-height: 30px; /* 150% */
   margin: 0;
@@ -2334,7 +2349,7 @@ textarea.dr-form {
   padding: 0 20px;
   min-height: 439px;
 }
-@media (max-width: 1366px) and (min-width: 992px) {
+@media (max-width: 1536px) and (min-width: 992px) {
   .case-study-card-slider .case-study-slider .case-study-card {
     padding: 0 10px;
   }
@@ -2433,6 +2448,7 @@ textarea.dr-form {
 .two-column-section .container {
   position: relative;
   z-index: 2;
+  max-width: 1150px;
 }
 .two-column-section .container h2 {
   color: #ffffff;

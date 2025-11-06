@@ -478,6 +478,84 @@
                             "append": ""
                         },
                         {
+                            "key": "field_690ae917cf4de",
+                            "label": "Section Title",
+                            "name": "section_title",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": ""
+                        },
+                        {
+                            "key": "field_690ae926cf4df",
+                            "label": "Section Description",
+                            "name": "section_description",
+                            "aria-label": "",
+                            "type": "textarea",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "allow_in_bindings": 0,
+                            "rows": "",
+                            "placeholder": "",
+                            "new_lines": ""
+                        },
+                        {
+                            "key": "field_69084849bf12c",
+                            "label": "Font Color",
+                            "name": "font_color",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "text-white": "White",
+                                "text-black": "Black",
+                                "text-dark": "Dark",
+                                "text-gray-100": "Gray 100",
+                                "text-gray-150": "Gray 150",
+                                "text-gray-200": "Gray 200",
+                                "text-gray-300": "Gray 300",
+                                "text-gray-400": "Gray 400",
+                                "text-orange": "Orange"
+                            },
+                            "default_value": "text-white",
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
                             "key": "field_69084811bf12a",
                             "label": "Background Color",
                             "name": "background_color",
@@ -539,9 +617,9 @@
                             "preview_size": "medium"
                         },
                         {
-                            "key": "field_69084849bf12c",
-                            "label": "Font Color",
-                            "name": "font_color",
+                            "key": "field_690aeb6f98cb7",
+                            "label": "Rows",
+                            "name": "rows",
                             "aria-label": "",
                             "type": "select",
                             "instructions": "",
@@ -553,17 +631,39 @@
                                 "id": ""
                             },
                             "choices": {
-                                "text-white": "White",
-                                "text-black": "Black",
-                                "text-dark": "Dark",
-                                "text-gray-100": "Gray 100",
-                                "text-gray-150": "Gray 150",
-                                "text-gray-200": "Gray 200",
-                                "text-gray-300": "Gray 300",
-                                "text-gray-400": "Gray 400",
-                                "text-orange": "Orange"
+                                "1": "1",
+                                "2": "2"
                             },
-                            "default_value": "text-white",
+                            "default_value": false,
+                            "return_format": "value",
+                            "multiple": 0,
+                            "allow_null": 0,
+                            "allow_in_bindings": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "create_options": 0,
+                            "save_options": 0
+                        },
+                        {
+                            "key": "field_690af071b4583",
+                            "label": "Source",
+                            "name": "source",
+                            "aria-label": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "post_type": "From Services",
+                                "manual": "Manual"
+                            },
+                            "default_value": "post_type",
                             "return_format": "value",
                             "multiple": 0,
                             "allow_null": 0,
@@ -582,7 +682,15 @@
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_690af071b4583",
+                                        "operator": "==",
+                                        "value": "manual"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -1286,6 +1394,24 @@
                                     "placeholder": "",
                                     "new_lines": "",
                                     "parent_repeater": "field_6900676052e81"
+                                },
+                                {
+                                    "key": "field_690ad20b42a48",
+                                    "label": "Block link",
+                                    "name": "block_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_6900676052e81"
                                 }
                             ]
                         },
@@ -1507,7 +1633,15 @@
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
-                            "conditional_logic": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_6908162d23ee3",
+                                        "operator": "==",
+                                        "value": "manual"
+                                    }
+                                ]
+                            ],
                             "wrapper": {
                                 "width": "",
                                 "class": "",
@@ -2805,5 +2939,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762236030
+    "modified": 1762324926
 }
