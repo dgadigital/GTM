@@ -1,8 +1,8 @@
-<?php /* info_card_blocks */ ?> 
+<?php /* info_columns */ ?> 
 
 <?php
 /**
- * Info Card Blocks Section
+ * Info Columns Section
  */
 
 $section_index = $args['section_index'] ?? 0;
@@ -31,15 +31,15 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
 
 <section
   id="<?= esc_attr($section_id); ?>"
-  class="info-card-blocks section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
+  class="info-columns section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
   <?php if (!empty($background_image)): ?>
     style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
-  <div class="container info-card-content-wrapper">
+  <div class="container info-column-content-wrapper">
 
     <?php if (!empty($title) || !empty($description)): ?>
-      <div class="info-card-header">
+      <div class="info-column-header">
         <?php if (!empty($title)): ?>
           <h2 class="section-title <?= $font_color?>"><?= ($title); ?></h2>
         <?php endif; ?>
@@ -51,32 +51,30 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
     <?php endif; ?>
 
     <?php if (!empty($blocks)): ?>
-      <div class="info-card-grid">
-        <?php foreach ($blocks as $block):
-          $image   = $block['image']['url'] ?? '';
-          $heading = $block['heading'] ?? '';
-          $text    = $block['text'] ?? '';
-          $block_link = $block['block_link']['url'] ?? '';
+      
+        <div class="info-column-wrapper">
+          <?php foreach ($blocks as $block):
+            $image   = $block['image']['url'] ?? '';
+            $heading = $block['heading'] ?? '';
+            $text    = $block['text'] ?? '';
+            $block_link = $block['block_link']['url'] ?? '';
 
-        ?>
-          <<?= $block_link ? 'a' : 'div'; ?> <?= $block_link ? 'href="' . esc_url($block_link) . '"' : ''; ?>  class="info-card" >
-            <?php if (!empty($image)): ?>
-              <div class="info-card-image">
-                <img src="<?= esc_url($image); ?>" alt="<?= esc_attr($heading); ?>">
+          ?>
+            
+              
+
+              <div class="info-column-content">
+                <?php if (!empty($heading)): ?>
+                  <h3 class="fs-50"><?= ($heading); ?></h3>
+                <?php endif; ?>
+                <?php if (!empty($text)): ?>
+                  <p><?= ($text); ?></p>
+                <?php endif; ?>
               </div>
-            <?php endif; ?>
-
-            <div class="info-card-content">
-              <?php if (!empty($heading)): ?>
-                <h3 class="fs-50"><?= ($heading); ?></h3>
-              <?php endif; ?>
-              <?php if (!empty($text)): ?>
-                <p><?= ($text); ?></p>
-              <?php endif; ?>
-            </div>
-          </<?= $block_link ? 'a' : 'div'; ?>>
-        <?php endforeach; ?>
-      </div>
+            
+          <?php endforeach; ?>
+        </div>
+      
     <?php endif; ?>
 
     <?php if (!empty($button)):
@@ -84,7 +82,7 @@ if (empty($title) && empty($description) && empty($blocks) && empty($button) && 
       $btn_title  = $button['title'] ?? '';
       $btn_target = $button['target'] ?? '_self';
     ?>
-      <div class="info-card-button">
+      <div class="info-column-button">
         <a href="<?= esc_url($btn_url); ?>" class="btn btn-primary" target="<?= esc_attr($btn_target); ?>">
           <?= ($btn_title); ?>
         </a>

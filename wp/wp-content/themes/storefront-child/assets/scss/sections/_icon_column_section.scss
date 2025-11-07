@@ -121,12 +121,12 @@ width: 100%;
 
       &:hover {
         .icon {
-          filter: brightness(0) saturate(100%) invert(47%) sepia(92%) saturate(2070%) hue-rotate(11deg) brightness(103%) contrast(105%);
-          /* #FF9500 */
+          // orange filter: brightness(0) saturate(100%) invert(47%) sepia(92%) saturate(2070%) hue-rotate(11deg) brightness(103%) contrast(105%); 
+          filter: brightness(0) saturate(100%) invert(59%) sepia(0%) saturate(0%) hue-rotate(202deg) brightness(91%) contrast(88%);
         }
 
         .block-title {
-          color: $orange;
+          color: $gray-300;
         }
       }
     }

@@ -56,7 +56,7 @@ $featured_case = new WP_Query([
 ]);
 
 if ($featured_case->have_posts()) : ?>
-  <div class="featured-case-study mb-5">
+  <div class="featured-case-study mb-5 d-none">
     <?php while ($featured_case->have_posts()) : $featured_case->the_post(); ?>
 
       <div class="featured-card d-flex flex-column flex-lg-row align-items-start">
@@ -155,69 +155,75 @@ if ($video && !empty($video['url'])):
 
 
     
-      <h2 class="text-center slider-title">View Other Case Studies</h2>
+      <h2 class="text-center slider-title d-none">View Other Case Studies</h2>
     
     </div>
-    <div class="case-study-slider">
-      <?php
-      $case_studies = new WP_Query([
-        'post_type'      => 'case-study', // ✅ CPT updated
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-      ]);
-
-      if ($case_studies->have_posts()) :
-        while ($case_studies->have_posts()) :
-          $case_studies->the_post();
-
-          $image_id   = get_post_thumbnail_id();
-          $excerpt    = get_the_excerpt();
-          $percentage = get_field('percentage');
-          $permalink  = get_permalink();
-      ?>
-          <div class="case-study-card">
-            <div class="card-inner text-center">
-              <?php if (!empty($image_id)) : ?>
-                <div class="image-wrapper">
-                  <?= wp_get_attachment_image($image_id, 'medium', false, [
-                    'style' => 'max-height:180px;object-fit:cover;margin:auto;display:block;border-radius:8px;',
-                    'alt'   => esc_attr(get_the_title()),
-                  ]); ?>
-                </div>
-              <?php endif; ?>
-
-              <div class="content">
-                <!-- <h3 class="case-study-title"> -->
-                  <?php // echo esc_html(get_the_title()); ?>
-                <!-- </h3> -->
-
-                <?php if (!empty($excerpt)) : ?>
-                  <div class="excerpt"><?= esc_html($excerpt); ?></div>
-                <?php endif; ?>
-
-                <?php if (!empty($percentage)) : ?>
-                  <div class="percentage">
-                    <?= esc_html($percentage); ?>
+    <div class="container">
+      <div class="case-study-slider">
+        <?php
+        $case_studies = new WP_Query([
+          'post_type'      => 'case-study', // ✅ CPT updated
+          'posts_per_page' => -1,
+          'post_status'    => 'publish',
+        ]);
+  
+        if ($case_studies->have_posts()) :
+          while ($case_studies->have_posts()) :
+            $case_studies->the_post();
+  
+            $image_id   = get_post_thumbnail_id();
+            $title    = get_the_title();
+            $excerpt    = get_the_excerpt();
+            $percentage = get_field('percentage');
+            $permalink  = get_permalink();
+        ?>
+            <div class="case-study-card">
+              <div class="card-inner text-center">
+                <?php if (!empty($image_id)) : ?>
+                  <div class="image-wrapper">
+                    <?= wp_get_attachment_image($image_id, 'medium', false, [
+                      'style' => 'max-height:180px;object-fit:cover;margin:auto;display:block;border-radius:8px;',
+                      'alt'   => esc_attr(get_the_title()),
+                    ]); ?>
                   </div>
                 <?php endif; ?>
-
-                <a href="<?= esc_url($permalink); ?>" class="learn-more">
-                  Read More
-                </a>
+  
+                <div class="content">
+                  <!-- <h3 class="case-study-title"> -->
+                    <?php // echo esc_html(get_the_title()); ?>
+                  <!-- </h3> -->
+  
+                  <?php if (!empty($title)) : ?>
+                    <h3 class="title"><?= esc_html($title); ?></h3>
+                  <?php endif; ?>
+                  <?php if (!empty($excerpt)) : ?>
+                    <div class="excerpt"><?= esc_html($excerpt); ?></div>
+                  <?php endif; ?>
+  
+                  <?php if (!empty($percentage)) : ?>
+                    <div class="percentage d-none">
+                      <?= esc_html($percentage); ?>
+                    </div>
+                  <?php endif; ?>
+  
+                  <a href="<?= esc_url($permalink); ?>" class="learn-more">
+                    Read More
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-      <?php
-        endwhile;
-        wp_reset_postdata();
-      endif;
-      ?>
+        <?php
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </div>      
     </div>
 
     <div class="container">
     <?php if (!empty($archive_link)) : ?>
       <div class="section-button text-center mt-4">
-        <a href="<?= esc_url($archive_link); ?>" class="btn btn-primary">
+        <a href="<?= esc_url($archive_link); ?>" class="btn btn-tertiary">
           View All Case Studies
         </a>
       </div>

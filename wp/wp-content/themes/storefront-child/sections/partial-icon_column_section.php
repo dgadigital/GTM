@@ -18,6 +18,7 @@ $background_color     = get_sub_field('background_color');     // Select (bg-*)
 $font_color           = get_sub_field('font_color');           // Select (text-*)
 $blocks               = get_sub_field('blocks');               // Repeater
 $content_source       = get_sub_field('content_source') ?: 'sectors'; // Select (default)
+$bottom_btn           = get_sub_field('bottom_btn');           // link
 ?>
 
 <section
@@ -113,4 +114,10 @@ $content_source       = get_sub_field('content_source') ?: 'sectors'; // Select 
       </div>
     <?php endif; ?>
   </div>
+    <?php if (!empty($bottom_btn)): ?>
+  <div class="container">
+    <div class="section-button text-center mt-4">
+      <a href="<?= $bottom_btn['url']?>" class="btn btn-tertiary"><?= $bottom_btn['title']?></a>
+    </div>
+  <?php endif; ?>
 </section>

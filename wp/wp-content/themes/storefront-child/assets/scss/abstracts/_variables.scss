@@ -53,11 +53,23 @@ $gradient-dark-50: linear-gradient(180deg, rgba(35, 31, 32, 1) 0%, rgba(35, 31, 
 // Base font: 16px = 1rem
 // ==========================================
 
+// === fs-84 (≈ XXL Heading) ===
+$fs-84-min: 3.5rem;  // 56px
+$fs-84-max: 5.25rem; // 84px
+$fs-84-fluid: calc(#{$fs-84-min} + (1.75rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-84: clamp($fs-84-min, $fs-84-fluid, $fs-84-max);
+
 // === fs-70 (≈ H1) ===
 $fs-70-min: 3.25rem; // 52px
 $fs-70-max: 4.375rem; // 70px
 $fs-70-fluid: calc(#{$fs-70-min} + (1.125rem * ((100vw - 23.4375rem) / 101.0625rem)));
 $fs-70: clamp($fs-70-min, $fs-70-fluid, $fs-70-max);
+
+// === fs-64 (≈ XL Heading) ===
+$fs-64-min: 2.75rem;  // 44px
+$fs-64-max: 4rem;     // 64px
+$fs-64-fluid: calc(#{$fs-64-min} + (1.25rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-64: clamp($fs-64-min, $fs-64-fluid, $fs-64-max);
 
 // === fs-50 ===
 $fs-50-min: 2.375rem; // 38px
@@ -70,6 +82,13 @@ $fs-40-min: 1.875rem; // 30px
 $fs-40-max: 2.5rem; // 40px
 $fs-40-fluid: calc(#{$fs-40-min} + (0.625rem * ((100vw - 23.4375rem) / 101.0625rem)));
 $fs-40: clamp($fs-40-min, $fs-40-fluid, $fs-40-max);
+
+// === fs-37 ===
+$fs-37-min: 1.75rem;  // 28px
+$fs-37-max: 2.3125rem; // 37px
+$fs-37-fluid: calc(#{$fs-37-min} + (0.5625rem * ((100vw - 23.4375rem) / 101.0625rem)));
+$fs-37: clamp($fs-37-min, $fs-37-fluid, $fs-37-max);
+
 
 // === fs-30 ===
 $fs-30-min: 1.375rem; // 22px

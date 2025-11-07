@@ -291,23 +291,30 @@ jQuery(document).ready(function ($) {
 
 jQuery(document).ready(function ($) {
   // Shared slider settings
-  const slickSettings = {
+  const testimonial_slickSettings = {
     dots: true,
     arrows: false,
-    slidesToShow: 5,
+    slidesToShow: 2,
     slidesToScroll: 1,
     adaptiveHeight: true,
     infinite: true,
     autoplay: false,
     responsive: [
       {
-        breakpoint: 1537,
-        settings: { slidesToShow: 4 }
-      },
-      {
-        breakpoint: 1221,
-        settings: { slidesToShow: 3 }
-      },
+        breakpoint: 767,
+        settings: { slidesToShow: 1 }
+      }
+    ]
+  };
+  const case_study_slickSettings = {
+    dots: true,
+    arrows: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    infinite: true,
+    autoplay: false,
+    responsive: [
       {
         breakpoint: 991,
         settings: { slidesToShow: 2 }
@@ -321,12 +328,12 @@ jQuery(document).ready(function ($) {
 
   // Initialize Testimonial Slider
   if ($('.testimonial-slider').length && !$('.testimonial-slider').hasClass('slick-initialized')) {
-    $('.testimonial-slider').slick(slickSettings);
+    $('.testimonial-slider').slick(testimonial_slickSettings);
   }
 
   // Initialize Case Study Slider
   if ($('.case-study-slider').length && !$('.case-study-slider').hasClass('slick-initialized')) {
-    $('.case-study-slider').slick(slickSettings);
+    $('.case-study-slider').slick(case_study_slickSettings);
   }
 });
 
@@ -346,7 +353,7 @@ document.querySelectorAll('.grid-section .item').forEach(item => {
 
 
 jQuery(document).ready(function ($) {
-  const $leadershipSlider = $('.leadership-fullwidth-automatic-slider .members');
+  const $leadershipSlider = $('.leadership-fullwidth-automatic-slider .is-slider');
 
   if ($leadershipSlider.length && !$leadershipSlider.hasClass('slick-initialized')) {
     $leadershipSlider.slick({
@@ -369,4 +376,40 @@ jQuery(document).ready(function ($) {
       ]
     });
   }
+});
+
+
+document.querySelectorAll('.hero-video-banner').forEach(section => {
+  const video  = section.querySelector('.hero-bg-video');
+  const button = section.querySelector('.video-toggle');
+  if (!video || !button) return;
+
+  // Keep the class in sync with the real video state
+  const sync = () => {
+    const isPlaying = !video.paused && !video.ended && video.currentTime > 0;
+    section.classList.toggle('playing', isPlaying);
+  };
+
+  // Initial sync after metadata is ready (duration/currentTime available)
+  if (video.readyState >= 1) {
+    sync();
+  } else {
+    video.addEventListener('loadedmetadata', sync, { once: true });
+  }
+
+  // Also handle common playback state events
+  video.addEventListener('playing',  sync);
+  video.addEventListener('play',     sync);
+  video.addEventListener('pause',    sync);
+  video.addEventListener('ended',    sync);
+
+  // Button toggles play/pause
+  button.addEventListener('click', () => {
+    if (video.paused) {
+      const p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {}); // ignore autoplay block errors
+    } else {
+      video.pause();
+    }
+  });
 });

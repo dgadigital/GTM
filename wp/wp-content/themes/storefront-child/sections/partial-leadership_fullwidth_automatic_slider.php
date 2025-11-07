@@ -16,38 +16,48 @@ $background_color     = get_sub_field('background_color');  // e.g. bg-orange
 $background_image     = get_sub_field('background_image');  // Image array
 $font_color           = get_sub_field('font_color');        // e.g. text-white
 $section_title        = get_sub_field('section_title');     // Text
+$slider               = get_sub_field('slider');     // Text
 $section_description  = get_sub_field('section_description'); // WYSIWYG
 $member_wrapper_title = get_sub_field('member_wrapper_title'); // Text
 $members              = get_sub_field('members');           // Repeater
+
+
 ?>
 
 <section
   id="<?= esc_attr($section_id); ?>"
-  class="leadership-fullwidth-automatic-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?>"
+  class="leadership-fullwidth-automatic-slider section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?> <?= (empty($section_title) && empty($section_description)) ? 'pt-0' : ''; ?>"
   <?php if (!empty($background_image)): ?>
     style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
 >
-  <div class="container">
-    <div class="section-header d-flex justify-content-between align-items-start flex-column flex-lg-row">
-      <?php if (!empty($section_title)): ?>
-        <h2 class="section-title <?= $font_color?>"><?= esc_html($section_title); ?></h2>
-      <?php endif; ?>
 
-      <?php if (!empty($section_description)): ?>
-        <div class="section-description <?= $font_color?>">
-          <?= wp_kses_post($section_description); ?>
-        </div>
-      <?php endif; ?>
+  <?php if (!empty($section_title) && !empty($section_description)) :?>
+    <div class="container">
+      <div class="section-header d-flex justify-content-between align-items-start flex-column flex-lg-row">
+        <?php if (!empty($section_title)): ?>
+          <h2 class="section-title <?= $font_color?>"><?= esc_html($section_title); ?></h2>
+        <?php endif; ?>
+
+        <?php if (!empty($section_description)): ?>
+          <div class="section-description <?= $font_color?>">
+            <?= wp_kses_post($section_description); ?>
+          </div>
+        <?php endif; ?>
+      </div>
     </div>
+  <?php endif; ?>
 
+  
+
+  <?php if (!empty($members)): ?>   
+    <?= $slider ? '' : '<div class="container">'; ?>
+    
     <?php if (!empty($member_wrapper_title)): ?>
       <h3 class="member-wrapper-title <?= $font_color?>"><?= esc_html($member_wrapper_title); ?></h3>
     <?php endif; ?>
-  </div>
 
-  <?php if (!empty($members)): ?>
-    <div class="members">
+    <div class="members <?= $slider ? 'is-slider' : 'slider-is-off'; ?>">
       <?php foreach ($members as $item):
         $member_img         = $item['member']; // Image array
         $member_name        = $item['member_name'];
@@ -86,5 +96,9 @@ $members              = get_sub_field('members');           // Repeater
         </div>
       <?php endforeach; ?>
     </div>
+    <?= $slider ? '' : '</div>'; ?>
   <?php endif; ?>
+
+    
+  </div>
 </section>

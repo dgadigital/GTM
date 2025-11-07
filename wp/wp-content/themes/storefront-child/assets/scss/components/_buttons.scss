@@ -8,11 +8,11 @@
             font-weight: 400;
             line-height: normal;
             line-height: $lh-auto;
-            border: 1px solid $orange;
+            border: 1px solid $gray-200;
             padding: 15px 27px;
         }
 .btn-primary {
-            background: $orange;
+            background: $gray-200;
             color: $black;
             &:hover {
                 background: $black;

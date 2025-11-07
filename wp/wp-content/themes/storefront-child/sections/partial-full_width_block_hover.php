@@ -25,11 +25,12 @@ $section_description = get_sub_field('section_description');
 $rows                = get_sub_field('rows') ?: 2;
 $source              = get_sub_field('source');
 $blocks              = get_sub_field('blocks');
+$bottom_btn           = get_sub_field('bottom_btn');           // link
 ?>
 
 <section
   id="<?= esc_attr($section_id); ?>"
-  class="fullwidth-block-hover section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?> <?= (!empty($section_title) || !empty($section_description)) ? 'section-padding' : ''; ?>"
+  class="fullwidth-block-hover section-<?= esc_attr($section_index); ?> <?= esc_attr($background_color . ' ' . $font_color); ?> <?= (!empty($section_title) || !empty($section_description)) ? 'section-padding' : ''; ?> <?= !empty($bottom_btn)?'pb-5':'';?>"
   <?php if (!empty($background_image)): ?>
     style="background-image:url('<?= esc_url($background_image['url']); ?>');"
   <?php endif; ?>
@@ -163,5 +164,10 @@ $blocks              = get_sub_field('blocks');
       <?php endforeach; ?>
     </div><!-- /.carousel -->
   <?php endif; ?>
-
+  <?php if (!empty($bottom_btn)): ?>
+  <div class="container">
+    <div class="section-button text-center mt-4">
+      <a href="<?= $bottom_btn['url']?>" class="btn btn-tertiary"><?= $bottom_btn['title']?></a>
+    </div>
+  <?php endif; ?>
 </section>

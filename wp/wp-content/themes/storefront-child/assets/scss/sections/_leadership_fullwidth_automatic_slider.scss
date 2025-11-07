@@ -5,6 +5,10 @@
   padding: 80px 0;
 overflow: hidden;
 
+  &.pt-0{
+    margin-top: -1px;
+  }
+
   .section-header {
     margin-bottom: 40px;
     @media (max-width: 991px) {
@@ -23,13 +27,13 @@ overflow: hidden;
     .section-description {
       max-width: 600px;
       color: $dark;
-        text-align: left;
+        text-align: right;
         font-size: $fs-25;
         font-style: normal;
         font-weight: 400;
         line-height: $lh-30; /* 120% */
         @media (max-width: 991px) {
-          text-align: left;
+          text-align: center;
        }
     }
   }
@@ -44,6 +48,27 @@ overflow: hidden;
   }
 
   .members{
+
+    &.slider-is-off {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      .member {
+        width: calc(25% - 7.5px);
+        flex: 0 0 calc(25% - 7.5px);
+
+
+        @media (max-width: 991px) {
+            width: calc(50% - 5px);
+            flex: 0 0 calc(50% - 5px);
+        }
+        @media (max-width: 768px) {
+            width: 100%;
+            flex: 0 0 100%;
+        }
+      }
+    }
+
     .member{
         .member-inner{
             display: flex;

@@ -1,4 +1,6 @@
 /* Styles for hero_banner section */
+@use 'abstracts/variables' as *;
+
 .hero-banner {
 
 @media (min-width:992px) {
@@ -12,6 +14,22 @@
 @media (max-width:991px) {
     
     padding: 185px 0 100px 0;
+}
+
+.hero-intro {
+     color: $white;
+    text-align: center;
+    font-family: $font-primary;
+    font-size: $fs-20;
+    font-style: normal;
+    font-weight: 400;
+    line-height: $lh-20;
+    }
+    h1{
+    text-align: center;
+}
+.hero-tagline {
+  text-align: center;
 }
 
   .hero-content {

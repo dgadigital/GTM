@@ -9,18 +9,7 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, div {
   font-family: $font-primary;
 }
 
-.hero-intro {
-     color: $white;
-    text-align: center;
-    font-family: $font-primary;
-    font-size: $fs-20;
-    font-style: normal;
-    font-weight: 400;
-    line-height: $lh-20;
-    }
-
 h1{
-    text-align: center;
     font-family: $font-primary;
     font-size: $fs-70;
     font-style: normal;
@@ -38,7 +27,6 @@ h1{
 
 .hero-tagline {
     color: $white;
-    text-align: center;
     font-family: $font-primary;
     font-size: $fs-15;
     font-style: normal;

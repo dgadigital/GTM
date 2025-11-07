@@ -1,33 +1,71 @@
 @use 'abstracts/variables' as *;
 
 .testimonial-card-slider {
-    background: $gray-200;
-    padding-top: 125px;
-    padding-bottom: 95px;
+  padding-top: 87px;
+  padding-bottom: 59px;
 
   .section-title {
     text-align: center;
-    margin-bottom: 2.125rem;
     color: $dark;
-    h2{
-        margin: 0;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .section-description {
+    text-align: center;
+    margin-bottom: 34px;
+
+    h3 {
+      color: $dark;
+      text-align: center;
+      font-size: $fs-20;
+      font-style: normal;
+      font-weight: 400;
+      line-height: $lh-60;
     }
   }
 
   .testimonial-slider {
+
+    // ✅ FIXED: slick-track should be here, not inside .testimonial-card
+    .slick-track {
+      display: flex !important;
+      align-items: stretch !important;
+    }
+
     .testimonial-card {
+      position: relative;
       padding: 0 15px;
       min-height: 439px;
+      text-decoration: none;
+      height: auto;
+      display: flex;
+      flex-direction: column;
 
       .card-inner {
         background: #fff;
         border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        padding: 25px;
-        padding-bottom: 40px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        padding: 41px 41px 45px;
+        padding-top: 54px;
         height: 100%;
         min-height: 439px;
         text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+          &.card-inner:before{
+            content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='105' height='88' viewBox='0 0 105 88' fill='none'%3E%3Cpath d='M59.78 87.2302V56.7302C59.78 42.0902 63.44 29.5852 70.76 19.2152C78.08 8.84518 89.4667 2.44019 104.92 0.000192404V18.9102C95.9733 20.1302 89.8733 23.2819 86.62 28.3652C83.57 33.2452 82.045 40.2602 82.045 49.4102L67.1 46.3602H104.31V87.2302H59.78ZM-1.06618e-05 87.2302V56.7302C-1.06618e-05 42.0902 3.65999 29.5852 10.98 19.2152C18.3 8.84518 29.6867 2.44019 45.14 0.000192404V18.9102C36.1933 20.1302 30.0933 23.2819 26.84 28.3652C23.79 33.2452 22.265 40.2602 22.265 49.4102L7.31999 46.3602H44.53V87.2302H-1.06618e-05Z' fill='%23E9E9E9'/%3E%3C/svg%3E"); 
+            position: absolute;
+            top: 16%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 1;
+          }
 
         .image-wrapper {
           margin-bottom: 15px;
@@ -45,89 +83,46 @@
         }
 
         .content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-          .excerpt {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          gap: 30px;
+          flex: 1;
+
+          .testimonial {
+            position: relative;
+            z-index: 2;
             color: $dark;
-            font-size: $fs-20;
+            text-align: center;
+            font-size: $fs-25;
             font-style: italic;
             font-weight: 500;
             line-height: $lh-30;
-            text-align: left;
-            min-height: 155px;
+            min-height: 162px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
-          .percentage {
-                color: $orange;
-                font-size: $fs-40;
-                font-style: normal;
-                font-weight: 700;
-                line-height: $lh-30;
-                margin-top: 20px;
-                margin-bottom: 5px;
-          }
+          .bottom-card-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
 
-          .learn-more {
-            display: inline-block;
-            font-weight: 600;
-            position: relative;
-            color: $orange;
-            text-decoration: none;
-            font-size: $fs-20;
-            font-style: normal;
-            font-weight: 700;
-            line-height: $lh-30; /* 150% */
-
-            &::after {
-              content: "›";
-              margin-left: 5px;
-              transition: margin-left 0.2s;
-            }
-
-            &:hover::after {
-              margin-left: 8px;
+            h3 {
+              color: $dark;
+              text-align: center;
+              font-size: $fs-23;
+              font-style: italic;
+              font-weight: 700;
+              line-height: $lh-30;
             }
           }
-        }
-      }
-    }
-
-    // slick.js default classes styling
-    .slick-dots {
-        position: relative;
-      text-align: center;
-      margin-top: 23px;
-      margin-bottom: 34px;
-      list-style: none;
-      bottom: unset;
-
-      li {
-        display: inline-block;
-        margin: 0 6px;
-        background: $gray-200;
-          width: 17px;
-          height: 17px;
-
-        button {
-          width: 11px;
-          height: 11px;
-          border-radius: 50%;          
-          border: none;
-          font-size: 0;
-          cursor: pointer;
-
-          &::before{
-            display: none;
-          }
-        }
-
-        &.slick-active button {
-          background: $dark; // adjust to your primary color
         }
       }
     }
   }
-
-
 }
