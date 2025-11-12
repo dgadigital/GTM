@@ -15,7 +15,7 @@ $locations = get_nav_menu_locations();
 
 <!-- ==================== DESKTOP NAV ==================== -->
 <nav class="navbar navbar-expand-lg sticky-top d-none d-lg-flex">
-  <div class="container d-flex align-items-center justify-content-between">
+  <div class="nav-container d-flex align-items-center justify-content-between m-auto">
 
     <!-- LEFT MENU -->
     <div class="navbar-left flex-grow-1 d-flex justify-content-end">
@@ -24,7 +24,7 @@ $locations = get_nav_menu_locations();
         wp_nav_menu([
           'theme_location' => 'left',
           'container'      => false,
-          'menu_class'     => 'navbar-nav justify-content-end',
+          'menu_class'     => 'navbar-nav',
           'fallback_cb'    => false,
           'walker'         => new Custom_Walker_Nav(),
         ]);
@@ -46,18 +46,22 @@ $locations = get_nav_menu_locations();
     </div>
 
     <!-- RIGHT MENU -->
-    <div class="navbar-right flex-grow-1 d-flex justify-content-start">
-      <?php
-      if (isset($locations['right'])) {
-        wp_nav_menu([
-          'theme_location' => 'right',
-          'container'      => false,
-          'menu_class'     => 'navbar-nav justify-content-start',
-          'fallback_cb'    => false,
-          'walker'         => new Custom_Walker_Nav(),
-        ]);
-      }
-      ?>
+    <div class="navbar-right flex-grow-1 d-flex">
+      <div class="menu-right-wrapper">
+        <?php
+        if (isset($locations['right'])) {
+          wp_nav_menu([
+            'theme_location' => 'right',
+            'container'      => false,
+            'menu_class'     => 'navbar-nav',
+            'fallback_cb'    => false,
+            'walker'         => new Custom_Walker_Nav(),
+          ]);
+        }
+        ?>
+      </div>
+      <a href="" class="search-icon"></a>
+      
     </div>
 
   </div>

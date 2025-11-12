@@ -38,9 +38,8 @@
     .testimonial-card {
       position: relative;
       padding: 0 15px;
-      min-height: 439px;
       text-decoration: none;
-      height: auto;
+      height: 439px;
       display: flex;
       flex-direction: column;
 
@@ -99,10 +98,18 @@
             font-style: italic;
             font-weight: 500;
             line-height: $lh-30;
-            min-height: 162px;
+            height: 181px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            justify-content: flex-start;
             align-items: center;
+            overflow: hidden;
+// ✅ Proper multiline ellipsis syntax
+  display: -webkit-box !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; // number of lines to show
+  overflow: hidden;
+  text-overflow: ellipsis;
           }
 
           .bottom-card-wrapper {
@@ -119,6 +126,12 @@
               font-style: italic;
               font-weight: 700;
               line-height: $lh-30;
+            }
+            .logo-wrapper{
+              max-height: 91px;
+              img{
+                height: 100%;
+              }
             }
           }
         }

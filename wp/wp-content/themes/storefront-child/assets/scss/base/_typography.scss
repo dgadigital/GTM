@@ -11,10 +11,10 @@ h1, h2, h3, h4, h5, h6, p, a, li, span, div {
 
 h1{
     font-family: $font-primary;
-    font-size: $fs-70;
+    font-size: $fs-16;
     font-style: normal;
     font-weight: 700;
-    line-height: $lh-78;
+    line-height: $lh-auto;
 
     &.light {
         color: $white;

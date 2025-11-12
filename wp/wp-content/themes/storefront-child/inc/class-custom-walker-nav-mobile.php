@@ -1,10 +1,15 @@
 <?php
-class Custom_Walker_Nav extends Walker_Nav_Menu {
+/**
+ * Custom Walker for Mobile Navigation
+ */
+class Custom_Walker_Nav_Mobile extends Walker_Nav_Menu {
 
   public function start_lvl( &$output, $depth = 0, $args = array() ) {
     $indent = str_repeat("\t", $depth);
+
+    // Only wrap level 0 dropdowns
     if ( $depth === 0 ) {
-      $output .= "\n{$indent}<div class=\"dropdown-menu box-style\" aria-labelledby=\"navbarDropdown{$depth}\">\n";
+      $output .= "\n{$indent}<div class=\"dropdown-menu box-style\">\n";
     }
   }
 
@@ -21,7 +26,7 @@ class Custom_Walker_Nav extends Walker_Nav_Menu {
     $is_dropdown   = $has_children && $depth === 0;
     $is_submenu    = $has_children && $depth === 1;
 
-    /* ---------- LEVEL 1 (top) ---------- */
+    /* ---------- LEVEL 1 ---------- */
     if ( $depth === 0 ) {
       $output .= '<li class="nav-item' . ( $is_dropdown ? ' dropdown' : '' ) . '">';
       $output .= '<div class="dropdown-wrapper">';
@@ -31,17 +36,24 @@ class Custom_Walker_Nav extends Walker_Nav_Menu {
       }
       $output .= '</div>';
 
-    /* ---------- LEVEL 2 (dropdown) ---------- */
+    /* ---------- LEVEL 2 ---------- */
     } elseif ( $depth === 1 ) {
       $output .= '<div class="dropdown-item-wrapper">';
-      $output .= '<a class="dropdown-item' . ( $is_submenu ? ' has-submenu' : '' ) . '" href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
 
+      // Inner flex container for item + toggle SVG
+      $output .= '<div class="dropdown-item-inner">';
+      $output .= '<a class="dropdown-item' . ( $is_submenu ? ' has-submenu' : '' ) . '" href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
       if ( $is_submenu ) {
         $output .= $this->get_toggle_svg();
+      }
+      $output .= '</div>'; // close .dropdown-item-inner
+
+      // Submenu lives below the inner wrapper
+      if ( $is_submenu ) {
         $output .= '<div class="dropdown-submenu">';
       }
 
-    /* ---------- LEVEL 3+ (sub-items) ---------- */
+    /* ---------- LEVEL 3+ ---------- */
     } elseif ( $depth >= 2 ) {
       $output .= '<a class="dropdown-subitem" href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
     }
@@ -50,22 +62,21 @@ class Custom_Walker_Nav extends Walker_Nav_Menu {
   public function end_el( &$output, $item, $depth = 0, $args = array() ) {
     $classes = empty( $item->classes ) ? [] : (array) $item->classes;
 
-    // Close nested submenu
+    // Close submenu if opened
     if ( $depth === 1 && in_array( 'menu-item-has-children', $classes ) ) {
       $output .= '</div>'; // close .dropdown-submenu
     }
 
-    // Close level 2 wrapper
     if ( $depth === 1 ) {
       $output .= '</div>'; // close .dropdown-item-wrapper
     }
 
-    // Close top-level <li>
     if ( $depth === 0 ) {
       $output .= "</li>\n";
     }
   }
 
+  /* ---------- SVG Toggle Icon ---------- */
   private function get_toggle_svg() {
     return '<a class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">'
          . '<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">'

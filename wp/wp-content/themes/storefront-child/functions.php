@@ -4,7 +4,7 @@
  * Use Storefront only for WooCommerce + backend logic
  */
 
-require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+// require_once get_stylesheet_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 require_once get_stylesheet_directory() . '/inc/class-custom-walker-nav.php';
 
 // ==========================================================

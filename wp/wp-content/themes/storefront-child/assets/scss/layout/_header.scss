@@ -50,7 +50,9 @@ nav {
         &:hover {
           color: $orange;
         }
-        
+        &.btn-primary{
+          color: $black;
+        }
       }
     
 
@@ -58,9 +60,11 @@ nav {
       display: flex;
       justify-content: center;
       align-items: center;
+      width:12%;
 
       @media (min-width: 992px) {
         margin: 0 80px; // 80px spacing between menus and logo
+        width: 12%;
       }
 
       img {
@@ -70,11 +74,31 @@ nav {
     }
   
 }
+.navbar{
+.navbar-nav{
+  @media (min-width: 992px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+}
+
 
 
 .navbar-left,
 .navbar-right {
   flex: 1 1 0;
+  justify-content: space-between;
+  width: 40%;
+
+  .search-icon{
+    width: 37px;
+    height: 43px;
+    flex-shrink: 0;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='37' height='43' viewBox='0 0 37 43' fill='none'%3E%3Crect width='37' height='43' fill='url(%23pattern0_20_36)'/%3E%3Cdefs%3E%3Cpattern id='pattern0_20_36' patternContentUnits='objectBoundingBox' width='1' height='1'%3E%3Cuse xlink:href='%23image0_20_36' transform='matrix(0.01 0 0 0.00860465 0 0.0697674)'/%3E%3C/pattern%3E%3Cimage id='image0_20_36' width='100' height='100' preserveAspectRatio='none' xlink:href='data:image/png;base64,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'/%3E%3C/defs%3E%3C/svg%3E");
+  }
 }
 .navbar-logo {
   flex: 0 0 auto;
@@ -97,6 +121,30 @@ nav {
       }
       
     }
+    .dropdown-item-wrapper{
+      .dropdown-item{
+        &.has-submenu{
+          & ~ .dropdown-toggle{
+            padding-right: 20px;  
+          }
+        }
+      }
+      @media (max-width: 991px) {
+        flex-direction: column;
+        .dropdown-item-inner{
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+        }
+      }
+      
+      
+    }
+
+          
+
     @media (min-width: 992px) {
       &:hover{
         .dropdown-menu{
@@ -122,6 +170,7 @@ nav {
           color: $white;
           padding: 5px 20px;
           
+
           &:hover {
             color: $orange;
             background-color: $dark;
@@ -243,5 +292,74 @@ nav {
     opacity: 0;
     transform: translateY(-10px);
     visibility: hidden;
+  }
+}
+
+/* =============================== */
+/*  Support for 3rd-level dropdown */
+/* =============================== */
+
+.dropdown-submenu {
+  display: none;
+  background: $dark;
+  white-space: nowrap; // prevent text wrapping
+  width: auto; // allow submenu to fit content
+  min-width: max-content; // ensures wide enough for long text
+  padding: 10px 0;
+
+  .dropdown-subitem {
+    text-decoration: none;
+    display: block;
+    color: $white;
+    padding: 6px 20px;
+    text-transform: none;
+    font-weight: 500;
+    width: 100%; // full clickable width
+    white-space: nowrap; // prevent text breaking
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    &:hover {
+      color: $orange;
+      background: $dark;
+    }
+  }
+
+  &.show {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .dropdown-item-wrapper {
+    position: relative;
+  }
+  .dropdown-item-wrapper:hover .dropdown-submenu {
+    display: block;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: auto;
+    min-width: max-content; // dynamic width based on content
+     margin-left: -10px;
+    background: $dark;
+    padding: 10px 0;
+    z-index: 10;
+  }
+  .dropdown-submenu{
+    pointer-events: auto;
+  }
+}
+
+
+/* =============================== */
+/*  Support for 2nd-level dropdown */
+/* =============================== */
+
+.dropdown-item-wrapper{
+  display: flex;
+  align-items: center;
+  @media (max-width: 991px) {
+    flex-direction: column;
   }
 }

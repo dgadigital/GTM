@@ -2279,6 +2279,24 @@
                                     "media_upload": 1,
                                     "delay": 0,
                                     "parent_repeater": "field_6901b3361d423"
+                                },
+                                {
+                                    "key": "field_6914139ec2993",
+                                    "label": "Page Link",
+                                    "name": "page_link",
+                                    "aria-label": "",
+                                    "type": "link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "allow_in_bindings": 0,
+                                    "parent_repeater": "field_6901b3361d423"
                                 }
                             ]
                         },
@@ -3532,5 +3550,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1762488570
+    "modified": 1762923721
 }

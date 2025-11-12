@@ -182,7 +182,6 @@ if ($video && !empty($video['url'])):
                 <?php if (!empty($image_id)) : ?>
                   <div class="image-wrapper">
                     <?= wp_get_attachment_image($image_id, 'medium', false, [
-                      'style' => 'max-height:180px;object-fit:cover;margin:auto;display:block;border-radius:8px;',
                       'alt'   => esc_attr(get_the_title()),
                     ]); ?>
                   </div>

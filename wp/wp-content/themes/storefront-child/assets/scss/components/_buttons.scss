@@ -10,6 +10,9 @@
             line-height: $lh-auto;
             border: 1px solid $gray-200;
             padding: 15px 27px;
+            display: inline-block;
+            width: auto;
+            white-space: nowrap;
         }
 .btn-primary {
             background: $gray-200;
@@ -53,10 +56,13 @@
 /* ===========================================
    Slick Dots Adaptive Styles by Section BG
    =========================================== */
+   .slick-list{
+    padding-bottom: 10px;
+   }
     .slick-dots {
       position: relative;
       text-align: center;
-      margin-top: 23px;
+      margin-top: 13px;
       margin-bottom: 34px;
       list-style: none;
       bottom: unset;

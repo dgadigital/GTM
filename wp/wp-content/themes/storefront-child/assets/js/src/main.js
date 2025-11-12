@@ -52,30 +52,74 @@ jQuery(document).ready(function($) {
 
 
 
+// ==========================================================================
+// Desktop & Mobile Dropdown Handling (Scoped for Mobile Structure)
+// ==========================================================================
+
 jQuery(function ($) {
-  // Handle dropdown toggle clicks
-  $(document).on("click", ".dropdown-toggle", function (e) {
+
+  const $mobileNav = $('.navbar.d-lg-none');
+  if (!$mobileNav.length) return;
+
+  // ---------- LEVEL 1: Toggle main dropdown (About Us, Services, etc.) ----------
+  $mobileNav.on('click', '> .container-fluid .dropdown-wrapper > .dropdown-toggle', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
-    // Find the dropdown menu relative to this toggle
-    const $dropdown = $(this).closest(".nav-item.dropdown");
-    const $menu = $dropdown.find(".dropdown-menu").first();
+    const $toggle = $(this);
+    const $item   = $toggle.closest('.nav-item.dropdown');
+    const $menu   = $item.children('.dropdown-menu.box-style');
 
-    // Close all other dropdowns
-    $(".dropdown-menu.show").not($menu).removeClass("show");
+    if ($menu.length) {
+      // Close other open level-1 menus
+      $item.siblings('.nav-item.dropdown').find('.dropdown-menu.show')
+        .removeClass('show')
+        .slideUp(200);
 
-    // Toggle current one
-    $menu.toggleClass("show");
+      // Toggle this menu
+      $menu.stop(true, true).slideToggle(200).toggleClass('show');
+
+      // Update aria-expanded
+      $toggle.attr('aria-expanded', $menu.hasClass('show'));
+    }
   });
 
-  // Close when clicking outside
-  $(document).on("click", function (e) {
-    if (!$(e.target).closest(".nav-item.dropdown").length) {
-      $(".dropdown-menu").removeClass("show");
+  // ---------- LEVEL 2: Toggle submenus (PR - Australia → Sydney, etc.) ----------
+  $mobileNav.on('click', '.dropdown-item-inner > .dropdown-toggle', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const $toggle  = $(this);
+    const $wrapper = $toggle.closest('.dropdown-item-wrapper');
+    const $submenu = $wrapper.children('.dropdown-submenu');
+
+    if ($submenu.length) {
+      // Close other submenus at same level
+      $wrapper.siblings('.dropdown-item-wrapper')
+        .find('.dropdown-submenu.show')
+        .removeClass('show')
+        .slideUp(200);
+
+      // Toggle this submenu
+      $submenu.stop(true, true).slideToggle(200).toggleClass('show');
+
+      // Update aria-expanded
+      $toggle.attr('aria-expanded', $submenu.hasClass('show'));
+    }
+  });
+
+  // ---------- GLOBAL: Close everything when clicking outside ----------
+  $(document).on('click', function (e) {
+    if (!$(e.target).closest('.navbar.d-lg-none .dropdown, .navbar.d-lg-none .dropdown-menu').length) {
+      $('.navbar.d-lg-none .dropdown-menu.show, .navbar.d-lg-none .dropdown-submenu.show')
+        .removeClass('show')
+        .slideUp(200);
+      $('.navbar.d-lg-none .dropdown-toggle[aria-expanded="true"]').attr('aria-expanded', 'false');
     }
   });
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", function () {

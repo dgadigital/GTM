@@ -65,11 +65,11 @@ $section_classes = trim('hero-video-banner section-' . $section_index . ' ' . $b
     <div class="row align-items-center hero-content-wrapper">
       <div class="text-column col-lg-6 col-md-12 col-12">
         <?php if (!empty($intro_line)) : ?>
-          <span class="hero-intro"><?= esc_html($intro_line); ?></span>
+          <h1 class="hero-intro"><?= esc_html($intro_line); ?></h1>
         <?php endif; ?>
 
         <?php if (!empty($headline)) : ?>
-          <h1 class="hero-title"><?= wp_kses_post($headline); ?></h1>
+          <span class="hero-title"><?= wp_kses_post($headline); ?></span>
         <?php endif; ?>
 
         <?php if (!empty($tagline)) : ?>
