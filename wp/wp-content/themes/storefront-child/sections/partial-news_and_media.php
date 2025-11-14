@@ -10,16 +10,12 @@ $background_color = get_sub_field('background_color'); // e.g. bg-gray-150
 $font_color       = get_sub_field('font_color');       // e.g. text-dark
 $section_title    = get_sub_field('section_title');    // Text
 $podcast_embed    = get_sub_field('podcast_embed');    // oEmbed
-$checklist_label  = get_sub_field('checklist_label');  // Text
-$checklist_link   = get_sub_field('checklist_link');   // Link
-$news_count       = get_sub_field('news_count') ?: 4;
-$read_all_text    = get_sub_field('read_all_text') ?: 'Read All News';
-$read_all_link    = get_sub_field('read_all_link');    // Link
+
 
 // === Query CPT: News ===
 $news_query = new WP_Query([
-  'post_type'      => 'news',
-  'posts_per_page' => $news_count,
+  'post_type'      => 'post',
+  'posts_per_page' => 4,
   'post_status'    => 'publish',
 ]);
 ?>
@@ -49,7 +45,7 @@ $news_query = new WP_Query([
         
         
           <div class="checklist-download">
-            <a href="<?php echo esc_url($checklist_link['url']); ?>" target="<?php echo esc_attr($checklist_link['target'] ?: '_self'); ?>" class="download-link">
+            <a href="/contact/" target="<?php echo esc_attr($checklist_link['target'] ?: '_self'); ?>" class="download-link">
               <span class="checklist-text">Download our free Crisis PR Checklist</span>
               <span class="download-icon"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="98" viewBox="0 0 96 98" fill="none">
                 <rect width="96" height="97.5" fill="url(#pattern0_69_235)"/>
@@ -86,7 +82,7 @@ $news_query = new WP_Query([
         <?php endif; ?>
 
             <?php
-            $news_archive_link = get_post_type_archive_link('news');
+            $news_archive_link = get_post_type_archive_link('posts');
             if ($news_archive_link):
             ?>
             <div class="read-more">

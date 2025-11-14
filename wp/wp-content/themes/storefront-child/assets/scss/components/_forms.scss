@@ -12,6 +12,14 @@
   font-size: $fs-15!important;
 }
 
+.hidden-fields-container ~ p{
+margin: 0;
+}
+
+span.wpcf7-spinner{
+  display: none;
+}
+
 textarea.dr-form{
 height: 114px;
 }

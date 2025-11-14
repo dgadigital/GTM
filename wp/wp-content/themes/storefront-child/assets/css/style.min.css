@@ -180,7 +180,7 @@ h1 {
   font-family: "Inter";
   font-size: clamp(0.9375rem, 0.9375rem + 0.0625rem * (100vw - 23.4375rem) / 101.0625rem, 1rem);
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: auto;
 }
 h1.light {
@@ -228,22 +228,30 @@ nav {
 nav.navbar {
   padding-top: 36px;
 }
+@media (max-width: 1280px) and (min-width: 992px) {
+  nav.navbar .nav-container {
+    -webkit-box-align: start !important;
+        -ms-flex-align: start !important;
+            align-items: flex-start !important;
+  }
+}
 nav.navbar {
-  -webkit-transition: background-color 0.4s ease, -webkit-box-shadow 0.3s ease;
-  transition: background-color 0.4s ease, -webkit-box-shadow 0.3s ease;
-  transition: background-color 0.4s ease, box-shadow 0.3s ease;
-  transition: background-color 0.4s ease, box-shadow 0.3s ease, -webkit-box-shadow 0.3s ease;
+  -webkit-transition: background-color 0.4s ease, padding 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.4s ease, padding 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: background-color 0.4s ease, box-shadow 0.3s ease, padding 0.3s ease;
+  transition: background-color 0.4s ease, box-shadow 0.3s ease, padding 0.3s ease, -webkit-box-shadow 0.3s ease;
   background-color: transparent;
 }
 nav.navbar.scrolled {
   background-color: #231f20; /* or your preferred color */
   -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 22px 0px;
 }
 @media (max-width: 991px) {
   nav.navbar {
-    -webkit-transition: background-color 0.3s ease;
-    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease, padding 0.3s ease;
+    transition: background-color 0.3s ease, padding 0.3s ease;
   }
   nav {
     /* When the collapse is open */
@@ -262,7 +270,7 @@ nav .nav-link {
   transition: color 0.3s ease;
 }
 nav .nav-link:hover {
-  color: #ff9500;
+  color: #d9d9d9;
 }
 nav .nav-link.btn-primary {
   color: #000000;
@@ -285,9 +293,22 @@ nav .navbar-logo {
     width: 12%;
   }
 }
+@media (max-width: 1280px) {
+  nav .navbar-logo {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 15px;
+  }
+}
 nav .navbar-logo img {
   height: 60px;
   width: auto;
+}
+@media (max-width: 1280px) {
+  nav .navbar-logo img {
+    height: 50px;
+  }
 }
 
 @media (min-width: 992px) {
@@ -304,6 +325,12 @@ nav .navbar-logo img {
     width: 100%;
   }
 }
+@media (max-width: 1365px) {
+  .navbar .navbar-nav {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
 
 .navbar-left,
 .navbar-right {
@@ -314,6 +341,20 @@ nav .navbar-logo img {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 40%;
+}
+@media (min-width: 992px) {
+  .navbar-left,
+  .navbar-right {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+}
+.navbar-left .menu-right-wrapper,
+.navbar-right .menu-right-wrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .navbar-left .search-icon,
 .navbar-right .search-icon {
@@ -399,7 +440,7 @@ nav .navbar-logo img {
     padding: 5px 20px;
   }
   .nav-item.dropdown:hover .dropdown-menu .dropdown-item:hover {
-    color: #ff9500;
+    color: #d9d9d9;
     background-color: #231f20;
   }
 }
@@ -432,7 +473,7 @@ nav .navbar-logo img {
 @media (max-width: 991px) {
   .nav-item.dropdown .dropdown-menu.show .dropdown-item:hover {
     background-color: #231f20;
-    color: #ff9500;
+    color: #d9d9d9;
   }
 }
 @media (min-width: 992px) {
@@ -552,7 +593,7 @@ nav .navbar-logo img {
   overflow: hidden;
 }
 .dropdown-submenu .dropdown-subitem:hover {
-  color: #ff9500;
+  color: #d9d9d9;
   background: #231f20;
 }
 .dropdown-submenu.show {
@@ -730,9 +771,9 @@ footer .mid-row .address-column {
   width: 100%;
 }
 footer .mid-row .address-column .location-title {
-  color: #ff9500;
+  color: #d9d9d9;
   border-radius: 5px;
-  border: 1px solid #ff9500;
+  border: 1px solid #d9d9d9;
   text-align: center;
   font-size: clamp(0.6875rem, 0.6875rem + 0.25rem * (100vw - 23.4375rem) / 101.0625rem, 0.9375rem);
   font-style: normal;
@@ -911,28 +952,25 @@ footer .bottom-row .bottom-row-wrapper .osoac-logo-wrapper {
   width: auto;
   white-space: nowrap;
 }
-
-.btn-primary {
+.btn.btn-primary {
   background: #d9d9d9;
   color: #000000;
 }
-.btn-primary:hover {
-  background: #000000;
-  border: 1px solid #ff9500;
-  color: #ff9500;
+.btn.btn-primary:active, .btn.btn-primary:focus, .btn.btn-primary:focus-visible, .btn.btn-primary:focus-within, .btn.btn-primary:hover {
+  background: #ffffff;
+  border: 1px solid #d9d9d9;
+  color: #231f20;
 }
-
-.btn-secondary {
+.btn.btn-secondary {
   background: #000000;
-  color: #ff9500;
+  color: #d9d9d9;
 }
-.btn-secondary:hover {
-  background: #ff9500;
+.btn.btn-secondary:active, .btn.btn-secondary:focus, .btn.btn-secondary:focus-visible, .btn.btn-secondary:focus-within, .btn.btn-secondary:hover {
+  background: #d9d9d9;
   border: 1px solid #000000;
-  color: #000000;
+  color: #231f20;
 }
-
-.btn-tertiary {
+.btn.btn-tertiary {
   color: #000000;
   text-align: center;
   font-size: clamp(0.6875rem, 0.6875rem + 0.25rem * (100vw - 23.4375rem) / 101.0625rem, 0.9375rem);
@@ -946,7 +984,7 @@ footer .bottom-row .bottom-row-wrapper .osoac-logo-wrapper {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.btn-tertiary:hover {
+.btn.btn-tertiary:active, .btn.btn-tertiary:focus, .btn.btn-tertiary:focus-visible, .btn.btn-tertiary:focus-within, .btn.btn-tertiary:hover {
   background: #919191;
   border-color: #000000;
 }
@@ -1030,6 +1068,14 @@ footer .bottom-row .bottom-row-wrapper .osoac-logo-wrapper {
 
 .wpcf7 .wpcf7-submit {
   font-size: clamp(0.6875rem, 0.6875rem + 0.25rem * (100vw - 23.4375rem) / 101.0625rem, 0.9375rem) !important;
+}
+
+.hidden-fields-container ~ p {
+  margin: 0;
+}
+
+span.wpcf7-spinner {
+  display: none;
 }
 
 textarea.dr-form {
@@ -1942,9 +1988,9 @@ textarea.dr-form {
   margin-top: 70px;
   margin-bottom: 70px;
 }
-@media (max-width: 575px) {
+@media (max-width: 1199px) {
   .info-columns .info-column-content-wrapper .info-column-wrapper {
-    gap: 40px;
+    gap: 30px;
   }
 }
 .info-columns .info-column-content-wrapper .info-column-wrapper .info-column-content {

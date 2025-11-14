@@ -13,27 +13,37 @@
             display: inline-block;
             width: auto;
             white-space: nowrap;
-        }
-.btn-primary {
+
+            &.btn-primary {
             background: $gray-200;
             color: $black;
+            &:active,
+            &:focus,
+            &:focus-visible,
+            &:focus-within,
             &:hover {
-                background: $black;
-                border: 1px solid $orange;
-                color: $orange;
+                background: $white;
+                border: 1px solid $gray-200;
+                color: $dark;
             }
+            
         }
-.btn-secondary {
+&.btn-secondary {
             background: $black;
-            color: $orange;
+            color: $gray-200;
+            &:active,
+            &:focus,
+            &:focus-visible,
+            &:focus-within,
             &:hover {
-                background: $orange;
+                background: $gray-200;
                 border: 1px solid $black;
-                color: $black;
+                color: $dark;
             }
+
         }
 
-        .btn-tertiary {
+        &.btn-tertiary {
   color: $black;
   text-align: center;
   font-size: $fs-15;
@@ -46,11 +56,17 @@
   display: inline-block;
   transition: all 0.3s ease;
 
-  &:hover {
+  &:active,
+            &:focus,
+            &:focus-visible,
+            &:focus-within,
+            &:hover {
     background: $gray-300;
     border-color: $black;
   }
 }
+        }
+
 
 
 /* ===========================================
