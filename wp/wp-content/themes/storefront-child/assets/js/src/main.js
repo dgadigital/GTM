@@ -1,8 +1,59 @@
 // Default JS entry file
 // Default JS entry file
 import $ from 'jquery';
-
 import 'slick-carousel';
+
+// ===============================================================
+// 🔥 Divi Scroll Hijacker Auto-Detector (Bulletproof Fix)
+// ===============================================================
+// ===============================================================
+// Safe fallback so "getEventListeners" never throws error
+// ===============================================================
+if (typeof window.getEventListeners !== "function") {
+    window.getEventListeners = function () {
+        return { wheel: [] };
+    };
+}
+
+// ===============================================================
+// Divi Scroll Hijacker Killer (Polling + Blocker)
+// ===============================================================
+window.addEventListener("load", () => {
+    const body = document.body;
+
+    if (!body.classList.contains("page-template-page-flexible-content")) {
+        return;
+    }
+
+    console.log("🔥 Scroll-Fix Ready — watching for hijacker....");
+
+    const interval = setInterval(() => {
+        const wheels = window.getEventListeners(window).wheel || [];
+
+        if (wheels.length > 0) {
+            console.warn(`⚠ Found ${wheels.length} wheel hijacker(s). Removing…`);
+
+            wheels.forEach(l => {
+                window.removeEventListener("wheel", l.listener, l.useCapture || false);
+            });
+
+            // Block future listeners
+            const origAdd = window.addEventListener;
+            window.addEventListener = function (type, listener, options) {
+                if (type === "wheel") {
+                    console.warn("🚫 Blocked future wheel listener:", listener);
+                    return;
+                }
+                origAdd.call(this, type, listener, options);
+            };
+
+            console.log("🎉 Scroll restored — hijacker neutralized.");
+            clearInterval(interval);
+        }
+
+    }, 200); // check 5× per second
+});
+
 
 // 🧹 Prevent multiple Bootstrap event bindings
 if (!window._bootstrapCollapsePatched) {
